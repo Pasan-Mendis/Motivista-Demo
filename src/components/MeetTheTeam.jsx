@@ -1,25 +1,110 @@
-// src/components/MeetTheTeam.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { ChevronLeft, ChevronRight, Users, Award, Sparkles } from "lucide-react";
 import teamMembers from "../services/teamData";
 import TeamCard from "./TeamCard";
-import Section from "./ui/Section";
-// eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Users, Award, Coffee } from "lucide-react";
+
+// Custom TeamCard wrapper component
+const CustomTeamCard = ({ member, index }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <div 
+      className="group !relative"
+      style={{
+        animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
+      }}
+    >
+      <div 
+        className="!relative !overflow-hidden !transition-all !duration-300 !ease-out"
+        style={{
+          backgroundColor: 'var(--color-white)',
+          borderRadius: 'var(--radius-card)',
+          boxShadow: isHovered ? 'var(--shadow-card-hover)' : 'var(--shadow-card)',
+          minHeight: '420px',
+          transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
+          willChange: 'transform, box-shadow',
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <TeamCard member={member} />
+        
+        {/* Overlay name tag */}
+        <div 
+          className="!absolute !bottom-0 !left-0 !right-0 !p-6 !pointer-events-none"
+          style={{
+            background: 'linear-gradient(180deg, transparent 0%, rgba(10, 9, 3, 0.95) 40%)',
+            transform: isHovered ? 'translateY(0)' : 'translateY(100%)',
+            transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            willChange: 'transform',
+          }}
+        >
+          <div 
+            className="!border-l-4 !pl-4 !py-2"
+            style={{
+              borderColor: 'var(--color-accent)',
+            }}
+          >
+            <h3 
+              className="!text-xl !font-bold !mb-1 !tracking-tight"
+              style={{ color: 'var(--color-white)' }}
+            >
+              {member.name}
+            </h3>
+            <p 
+              className="!text-sm !font-semibold !uppercase !tracking-widest"
+              style={{ color: 'var(--color-highlight)' }}
+            >
+              {member.role}
+            </p>
+          </div>
+        </div>
+
+        {/* Accent corner */}
+        <div 
+          className="!absolute !top-0 !right-0 !w-20 !h-20 !pointer-events-none !transition-opacity !duration-300"
+          style={{
+            background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-highlight) 100%)',
+            clipPath: 'polygon(100% 0, 100% 100%, 0 0)',
+            opacity: isHovered ? 1 : 0,
+            willChange: 'opacity',
+          }}
+        />
+      </div>
+    </div>
+  );
+};
 
 const MeetTheTeam = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 4; // show 4 at a time
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setItemsPerPage(1);
+      else if (window.innerWidth < 1024) setItemsPerPage(2);
+      else setItemsPerPage(4);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const nextSlide = () => {
-    if (currentIndex + itemsPerPage < teamMembers.length) {
+    if (currentIndex + itemsPerPage < teamMembers.length && !isAnimating) {
+      setIsAnimating(true);
       setCurrentIndex(currentIndex + itemsPerPage);
+      setTimeout(() => setIsAnimating(false), 600);
     }
   };
 
   const prevSlide = () => {
-    if (currentIndex - itemsPerPage >= 0) {
+    if (currentIndex - itemsPerPage >= 0 && !isAnimating) {
+      setIsAnimating(true);
       setCurrentIndex(currentIndex - itemsPerPage);
+      setTimeout(() => setIsAnimating(false), 600);
     }
   };
 
@@ -28,205 +113,213 @@ const MeetTheTeam = () => {
     currentIndex + itemsPerPage
   );
 
+  const totalPages = Math.ceil(teamMembers.length / itemsPerPage);
+  const currentPage = Math.floor(currentIndex / itemsPerPage);
+  const progressWidth = ((currentPage + 1) / totalPages) * 100;
+
   return (
-    <Section className="py-32 bg-white relative overflow-hidden">
-      {/* Subtle geometric decorations */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Elegant line patterns using theme colors */}
-        <div className="absolute top-20 left-10 w-32 h-px bg-gradient-to-r from-transparent via-[var(--color-neutral)]/30 to-transparent"></div>
-        <div className="absolute top-40 right-20 w-24 h-px bg-gradient-to-r from-transparent via-[var(--color-primary)]/30 to-transparent rotate-45"></div>
-        <div className="absolute bottom-32 left-1/4 w-40 h-px bg-gradient-to-r from-transparent via-[var(--color-secondary)]/30 to-transparent -rotate-12"></div>
-        
-        {/* Subtle dots pattern with theme colors */}
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-[var(--color-primary)]/40 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-[var(--color-secondary)]/50 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-10 w-1 h-1 bg-[var(--color-accent)]/50 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-        
-        {/* Large subtle circles with theme colors */}
-        <div className="absolute -top-40 -right-40 w-96 h-96 border border-[var(--color-neutral)]/10 rounded-full"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 border border-[var(--color-primary)]/10 rounded-full"></div>
+    <section 
+      className="!relative !overflow-hidden"
+      style={{
+        backgroundColor: 'var(--color-background)',
+        padding: '5rem 0',
+      }}
+    >
+      {/* Background Decorations */}
+      <div className="!absolute !inset-0 !pointer-events-none !opacity-30">
+        <div 
+          className="!absolute !top-0 !left-0 !w-96 !h-96 !rounded-full !blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%)',
+            animation: 'float 20s ease-in-out infinite',
+          }}
+        />
+        <div 
+          className="!absolute !bottom-0 !right-0 !w-96 !h-96 !rounded-full !blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, var(--color-highlight-light) 0%, transparent 70%)',
+            animation: 'float-delay 25s ease-in-out infinite',
+          }}
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-20">
-          {/* Badge with theme colors */}
-          <div className="inline-flex items-center gap-3 bg-[var(--color-background)] border border-[var(--color-neutral)]/30 rounded-full px-6 py-3 mb-8">
-            <Users className="text-[var(--color-primary)] w-5 h-5" />
-            <span className="text-[var(--color-neutral)] font-semibold uppercase tracking-wider text-sm">Our Team</span>
-          </div>
-          
-          {/* Main heading with theme gradient */}
-          <h2 className="text-5xl md:text-6xl font-[var(--font-heading)] font-black text-[var(--color-dark)] mb-6 leading-tight">
-            Meet The 
+      <div className="!max-w-7xl !mx-auto !px-4 sm:!px-6 !relative !z-10">
+        {/* Header */}
+        <div className="!text-center !mb-16">
+          <div 
+            className="!inline-flex !items-center !gap-2 !px-5 !py-2.5 !rounded-full !mb-6 !border"
+            style={{
+              backgroundColor: 'var(--color-white)',
+              borderColor: 'var(--color-gray-200)',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+            }}
+          >
+            <Sparkles 
+              className="!w-4 !h-4" 
+              style={{ color: 'var(--color-accent)' }}
+            />
             <span 
-              className="ml-4 bg-gradient-to-r from-[var(--color-primary)] via-[var(--color-secondary)] to-[var(--color-accent)] bg-clip-text text-transparent"
+              className="!text-xs !font-bold !uppercase !tracking-widest"
+              style={{ color: 'var(--color-secondary)' }}
+            >
+              Our Team
+            </span>
+          </div>
+
+          <h2 
+            className="!text-4xl md:!text-6xl lg:!text-7xl !font-black !mb-6 !leading-tight"
+            style={{ 
+              color: 'var(--color-primary)',
+              fontFamily: 'var(--font-heading)',
+            }}
+          >
+            Meet The{' '}
+            <span 
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage: 'linear-gradient(135deg, var(--color-accent), var(--color-highlight))',
+              }}
             >
               Dream Team
             </span>
           </h2>
-          
-          <p className="text-xl text-[var(--color-neutral)] max-w-3xl mx-auto leading-relaxed mb-12">
-            The creative minds and passionate individuals behind every successful project
-          </p>
 
-          {/* Team stats with theme colors */}
-          <div className="flex justify-center gap-16 mb-16">
-            <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/20 rounded-2xl mb-3 mx-auto">
-                <Users className="text-[var(--color-primary)] w-8 h-8" />
+          <p 
+            className="!text-base sm:!text-lg !max-w-2xl !mx-auto"
+            style={{ color: 'var(--color-neutral)' }}
+          >
+            The creative minds behind every successful project
+          </p>
+        </div>
+
+        {/* Stats */}
+        <div className="!flex !flex-wrap !justify-center !gap-8 sm:!gap-16 !mb-16">
+          {[
+            { icon: Users, value: `${teamMembers.length}+`, label: "Team Members", color: "var(--color-primary)" },
+            { icon: Award, value: "50+", label: "Projects Delivered", color: "var(--color-accent)" },
+          ].map((stat, i) => (
+            <div key={i} className="!text-center !group">
+              <div
+                className="!flex !items-center !justify-center !w-16 !h-16 sm:!w-20 sm:!h-20 !rounded-2xl !mb-4 !mx-auto !transition-all !duration-500 group-hover:!scale-110"
+                style={{
+                  backgroundColor: 'var(--color-white)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+                }}
+              >
+                <stat.icon
+                  className="!w-7 !h-7 sm:!w-9 sm:!h-9 !transition-transform !duration-500 group-hover:!rotate-12"
+                  style={{ color: stat.color }}
+                />
               </div>
-              <div className="text-3xl font-bold text-[var(--color-dark)]">{teamMembers.length}+</div>
-              <div className="text-sm text-[var(--color-neutral)] uppercase tracking-wide">Team Members</div>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[var(--color-secondary)]/10 to-[var(--color-secondary)]/20 rounded-2xl mb-3 mx-auto">
-                <Award className="text-[var(--color-secondary)] w-8 h-8" />
+              <div 
+                className="!text-2xl sm:!text-3xl !font-black !mb-1"
+                style={{ color: 'var(--color-primary)' }}
+              >
+                {stat.value}
               </div>
-              <div className="text-3xl font-bold text-[var(--color-dark)]">50+</div>
-              <div className="text-sm text-[var(--color-neutral)] uppercase tracking-wide">Projects Delivered</div>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[var(--color-accent)]/10 to-[var(--color-accent)]/20 rounded-2xl mb-3 mx-auto">
-                <Coffee className="text-[var(--color-accent)] w-8 h-8" />
+              <div 
+                className="!text-xs sm:!text-sm !uppercase !tracking-wider !font-semibold"
+                style={{ color: 'var(--color-neutral)' }}
+              >
+                {stat.label}
               </div>
-              <div className="text-3xl font-bold text-[var(--color-dark)]">1000+</div>
-              <div className="text-sm text-[var(--color-neutral)] uppercase tracking-wide">Cups of Coffee</div>
             </div>
-          </div>
+          ))}
         </div>
 
         {/* Team Carousel */}
-        <div className="relative">
-          {/* Progress indicator with theme gradient */}
-          <div className="flex justify-center mb-8">
-            <div className="flex gap-2">
-              {Array.from({ length: Math.ceil(teamMembers.length / itemsPerPage) }).map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    Math.floor(currentIndex / itemsPerPage) === index
-                      ? 'bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] w-8'
-                      : 'bg-[var(--color-neutral)]/30'
-                  }`}
-                ></div>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-8">
-            {/* Left Arrow with theme colors */}
+        <div className="!relative" ref={containerRef}>
+          <div className="!flex !items-center !gap-4 sm:!gap-8">
+            {/* Previous Button */}
             <button
               onClick={prevSlide}
               disabled={currentIndex === 0}
-              className={`group flex items-center justify-center w-14 h-14 bg-white border-2 border-[var(--color-neutral)]/30 rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 ${
-                currentIndex === 0 
-                  ? "opacity-30 cursor-not-allowed" 
-                  : "hover:border-[var(--color-primary)]/50 hover:bg-[var(--color-primary)]/5"
-              }`}
+              className="!flex-shrink-0 !w-12 !h-12 sm:!w-14 sm:!h-14 !rounded-2xl !flex !items-center !justify-center !border-2 !transition-all !duration-300 !group"
+              style={{
+                backgroundColor: currentIndex === 0 ? 'var(--color-gray-100)' : 'var(--color-white)',
+                borderColor: currentIndex === 0 ? 'var(--color-gray-200)' : 'var(--color-primary)',
+                cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
+                boxShadow: currentIndex === 0 ? 'none' : '0 4px 12px rgba(10, 9, 3, 0.1)',
+              }}
             >
-              <ChevronLeft 
-                size={24} 
-                className={`transition-colors duration-300 ${
-                  currentIndex === 0 ? "text-[var(--color-neutral)]/50" : "text-[var(--color-neutral)] group-hover:text-[var(--color-primary)]"
-                }`} 
+              <ChevronLeft
+                className="!w-6 !h-6 sm:!w-7 sm:!h-7"
+                style={{
+                  color: currentIndex === 0 ? 'var(--color-gray-400)' : 'var(--color-primary)',
+                }}
               />
             </button>
 
-            {/* Team Cards Container */}
-            <div className="flex-1 overflow-hidden">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-              >
-                <AnimatePresence mode="wait">
-                  {visibleMembers.map((member, index) => (
-                    <motion.div
-                      key={member.id}
-                      initial={{ opacity: 0, y: 60, scale: 0.9 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -60, scale: 0.9 }}
-                      transition={{ 
-                        duration: 0.6, 
-                        delay: index * 0.1,
-                        ease: "easeOut"
-                      }}
-                      className="group"
-                    >
-                      <div className="relative">
-                        {/* Hover glow effect with theme gradient */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-[var(--color-primary)]/20 via-[var(--color-secondary)]/20 to-[var(--color-accent)]/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <TeamCard member={member} />
-                      </div>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </motion.div>
+            {/* Cards */}
+            <div className="!flex-1 !overflow-hidden">
+              <div className="!grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4 !gap-4 sm:!gap-6">
+                {visibleMembers.map((member, index) => (
+                  <CustomTeamCard key={member.id} member={member} index={index} />
+                ))}
+              </div>
             </div>
 
-            {/* Right Arrow with theme colors */}
+            {/* Next Button */}
             <button
               onClick={nextSlide}
               disabled={currentIndex + itemsPerPage >= teamMembers.length}
-              className={`group flex items-center justify-center w-14 h-14 bg-white border-2 border-[var(--color-neutral)]/30 rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 ${
-                currentIndex + itemsPerPage >= teamMembers.length
-                  ? "opacity-30 cursor-not-allowed"
-                  : "hover:border-[var(--color-primary)]/50 hover:bg-[var(--color-primary)]/5"
-              }`}
+              className="!flex-shrink-0 !w-12 !h-12 sm:!w-14 sm:!h-14 !rounded-2xl !flex !items-center !justify-center !border-2 !transition-all !duration-300 !group"
+              style={{
+                backgroundColor: currentIndex + itemsPerPage >= teamMembers.length ? 'var(--color-gray-100)' : 'var(--color-white)',
+                borderColor: currentIndex + itemsPerPage >= teamMembers.length ? 'var(--color-gray-200)' : 'var(--color-primary)',
+                cursor: currentIndex + itemsPerPage >= teamMembers.length ? 'not-allowed' : 'pointer',
+                boxShadow: currentIndex + itemsPerPage >= teamMembers.length ? 'none' : '0 4px 12px rgba(10, 9, 3, 0.1)',
+              }}
             >
-              <ChevronRight 
-                size={24} 
-                className={`transition-colors duration-300 ${
-                  currentIndex + itemsPerPage >= teamMembers.length 
-                    ? "text-[var(--color-neutral)]/50" 
-                    : "text-[var(--color-neutral)] group-hover:text-[var(--color-primary)]"
-                }`} 
+              <ChevronRight
+                className="!w-6 !h-6 sm:!w-7 sm:!h-7"
+                style={{
+                  color: currentIndex + itemsPerPage >= teamMembers.length ? 'var(--color-gray-400)' : 'var(--color-primary)',
+                }}
               />
             </button>
           </div>
 
-          {/* Team navigation dots with theme gradient */}
-          <div className="flex justify-center gap-3 mt-8">
-            {Array.from({ length: Math.ceil(teamMembers.length / itemsPerPage) }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index * itemsPerPage)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  Math.floor(currentIndex / itemsPerPage) === index
-                    ? 'bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] scale-125'
-                    : 'bg-[var(--color-neutral)]/40 hover:bg-[var(--color-neutral)]/60'
-                }`}
-              ></button>
-            ))}
+          {/* Premium progress bar instead of buttons */}
+          <div className="!relative !w-full !h-2 !rounded-full !overflow-hidden !mt-10 !bg-gray-200/60">
+            <div
+              className="!absolute !top-0 !left-0 !h-full !rounded-full"
+              style={{
+                width: `${progressWidth}%`,
+                background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight))',
+                transition: 'width 0.6s ease, background 0.6s ease',
+                boxShadow: '0 0 10px var(--overlay-accent-2)',
+              }}
+            />
+          </div>
+
+          {/* Page Counter */}
+          <div className="!text-center !mt-4">
+            <span 
+              className="!text-sm !font-semibold"
+              style={{ color: 'var(--color-neutral)' }}
+            >
+              {currentPage + 1} / {totalPages}
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Custom animations - keeping your existing keyframes */}
-      <style jsx>{`
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
-        
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-30px) translateX(20px); }
         }
-        
-        .animate-bounce-slow {
-          animation: bounce-slow 3s ease-in-out infinite;
-        }
-        
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
+        @keyframes float-delay {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(30px) translateX(-20px); }
         }
       `}</style>
-    </Section>
+    </section>
   );
 };
 

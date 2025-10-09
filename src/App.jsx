@@ -18,6 +18,7 @@ export default function App() {
         {/* Layout wraps all routes */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="Motivista-Demo" element={<Home />}/>
           <Route path="contact" element={<Contact />} />
           <Route path="apex" element={<Apex />} />
           <Route path="event" element={<Event />} />
