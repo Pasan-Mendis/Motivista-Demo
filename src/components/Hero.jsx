@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import React from "react";
-import heroImage from "../assets/images/team/hero-bg.jpg";
+import heroImage from "../assets/images/hero/holdings.png";
 import Section from "./ui/Section";
 import { FaArrowRight } from "react-icons/fa";
 
