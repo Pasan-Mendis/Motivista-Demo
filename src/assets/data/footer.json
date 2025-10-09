@@ -1,0 +1,56 @@
+{
+  "home": {
+    "footerTheme": {
+      "primary": "var(--color-primary)",
+      "secondary": "var(--color-secondary)",
+      "accent": "var(--color-accent)",
+      "background": "var(--color-background)",
+      "textPrimary": "var(--color-primary)",
+      "textSecondary": "var(--color-gray-500)"
+    },
+    "footer": {
+      "companyName": "Motivista (Pvt) Ltd",
+      "companyDescription": "Elevating your brand with creative digital solutions. We craft impactful experiences for businesses worldwide.",
+      "email": "info@motivista.com",
+      "facebookLink": "https://facebook.com/motivistaholdings",
+      "instagramLink": "https://linkedin.com",
+      "phone": "+94779002420"
+    }
+  },
+  "apex": {
+    "footerTheme": {
+      "primary": "var(--color-accent)",
+      "secondary": "var(--color-highlight)",
+      "accent": "var(--color-secondary)",
+      "background": "var(--color-gray-900)",
+      "textPrimary": "var(--color-white)",
+      "textSecondary": "var(--color-gray-300)"
+    },
+    "footer": {
+      "companyName": "Motivista Apex",
+      "companyDescription": "Apex – taking your events to the highest level.",
+      "email": "apex@motivista.com",
+      "facebookLink": "https://facebook.com/apex",
+      "instagramLink": "https://instagram.com/apex",
+      "phone": "+94779002421"
+    }
+  },
+  "event": {
+    "footerTheme": {
+      "primary": "var(--color-highlight)",
+      "secondary": "var(--color-accent)",
+      "accent": "var(--color-secondary-light)",
+      "background": "var(--color-background-dark)",
+      "textPrimary": "var(--color-primary)",
+      "textSecondary": "var(--color-gray-500)"
+    },
+    "footer": {
+      "companyName": "Motivista Events",
+      "companyDescription": "We create unforgettable event experiences.",
+      "email": "events@motivista.com",
+      "facebookLink": "https://facebook.com/events",
+      "instagramLink": "https://instagram.com/events",
+      "phone": "+94779002422"
+    }
+  }
+}

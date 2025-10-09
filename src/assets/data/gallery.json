@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "title": "Community Cleanup Drive",
+    "coverImage": "https://picsum.photos/600/400?random=1",
+    "description": "Our team organized a massive cleanup drive to restore the beauty of the local park and raise awareness on environmental conservation.",
+    "category":"events",
+    "images": [
+      "https://picsum.photos/800/500?random=11",
+      "https://picsum.photos/800/500?random=12",
+      "https://picsum.photos/800/500?random=13",
+      "https://picsum.photos/800/500?random=14"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Blood Donation Camp",
+    "coverImage": "https://picsum.photos/600/400?random=2",
+    "description": "A collaborative effort to encourage voluntary blood donation and support local hospitals in maintaining their blood banks.",
+    "category":"events",
+    "images": [
+      "https://picsum.photos/800/500?random=21",
+      "https://picsum.photos/800/500?random=22",
+      "https://picsum.photos/800/500?random=23",
+      "https://picsum.photos/800/500?random=24"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Tree Planting Program",
+    "coverImage": "https://picsum.photos/600/400?random=3",
+    "description": "We planted over 300 trees with the support of volunteers to promote a greener and healthier environment.",
+    "category":"events",
+    "images": [
+      "https://picsum.photos/800/500?random=31",
+      "https://picsum.photos/800/500?random=32",
+      "https://picsum.photos/800/500?random=33",
+      "https://picsum.photos/800/500?random=34"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Cultural Exchange Event",
+    "coverImage": "https://picsum.photos/600/400?random=4",
+    "description": "A memorable event connecting cultures, sharing traditions, and building lasting friendships between communities.",
+    "category":"events",
+    "images": [
+      "https://picsum.photos/800/500?random=41",
+      "https://picsum.photos/800/500?random=42",
+      "https://picsum.photos/800/500?random=43",
+      "https://picsum.photos/800/500?random=44"
+    ]
+  }
+]

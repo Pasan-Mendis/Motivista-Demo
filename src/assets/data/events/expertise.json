@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Corporate Events",
+    "shortDescription": "Seamless management for conferences, product launches, and business gatherings.",
+    "details": "From board meetings and award ceremonies to large-scale conferences, we ensure every corporate event reflects professionalism, creativity, and flawless execution.",
+    "image": "https://images.unsplash.com/photo-1503428593586-e225b39bddfe" 
+  },
+  {
+    "id": 2,
+    "title": "Non-Corporate Events",
+    "shortDescription": "Personal milestones and social celebrations made unforgettable.",
+    "details": "We specialize in weddings, private parties, cultural festivals, and lifestyle events that leave lasting memories for our clients and their guests.",
+    "image": "https://images.unsplash.com/photo-1531058020387-3be344556be6"
+  },
+  {
+    "id": 3,
+    "title": "Supportive Services",
+    "shortDescription": "End-to-end solutions with premium vendor support.",
+    "details": "Our team provides stage design, lighting, sound, digital promotions, guest management, and vendor coordination to deliver a complete event solution.",
+    "image": "https://images.unsplash.com/photo-1531058020387-3be344556be6"
+  }
+]

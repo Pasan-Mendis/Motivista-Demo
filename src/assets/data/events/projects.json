@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Summit 2024",
+    "category": "Corporate Event",
+    "location": "Colombo Convention Center",
+    "attendees": "500+",
+    "date": "March 2024",
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
+    "link" : "https://www.youtube.com/",
+    "description": "A groundbreaking technology conference featuring industry leaders and innovative solutions."
+  },
+  {
+    "id": 2,
+    "title": "Elegance Wedding",
+    "category": "Wedding Celebration",
+    "location": "Taj Samudra Hotel",
+    "attendees": "300+",
+    "date": "February 2024",
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+    "link" : "https://techsummit2024.com",
+    "description": "An enchanting wedding celebration with stunning decor and unforgettable moments."
+  },
+  {
+    "id": 3,
+    "title": "Music Festival",
+    "category": "Entertainment Event",
+    "location": "Galle Face Green",
+    "attendees": "5000+",
+    "date": "January 2024",
+    "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop",
+    "link" : "https://techsummit2024.com",
+    "description": "A spectacular outdoor music festival featuring top local and international artists."
+  },
+  {
+    "id": 4,
+    "title": "Product Launch Gala",
+    "category": "Corporate Event",
+    "location": "Cinnamon Grand",
+    "attendees": "250+",
+    "date": "December 2023",
+    "image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop",
+    "link" : "https://techsummit2024.com",
+    "description": "An exclusive product unveiling with immersive experiences and VIP guests."
+  },
+  {
+    "id": 5,
+    "title": "Cultural Festival",
+    "category": "Community Event",
+    "location": "Independence Square",
+    "attendees": "3000+",
+    "date": "November 2023",
+    "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&h=600&fit=crop",
+    "link" : "https://techsummit2024.com",
+    "description": "A vibrant celebration of Sri Lankan culture with traditional performances and cuisine."
+  },
+  {
+    "id": 6,
+    "title": "Charity Gala Night",
+    "category": "Non-Corporate Event",
+    "location": "Kingsbury Hotel",
+    "attendees": "400+",
+    "date": "October 2023",
+    "image": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=600&fit=crop",
+    "link" : "https://techsummit2024.com",
+    "description": "An elegant fundraising gala supporting local communities and charitable causes."
+  }
+]

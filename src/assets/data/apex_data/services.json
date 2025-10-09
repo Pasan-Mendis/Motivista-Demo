@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "title": "Creatives for Events",
+      "icon": "Palette",
+      "description": "From concept to execution, we design eye-catching visuals and branding materials for events — installations, backdrops, stage designs, and promotional content that capture attention."
+    },
+    {
+      "id": 2,
+      "title": "Social Media Management",
+      "icon": "Share2",
+      "description": "We help brands build strong digital identities through strategic content creation, audience engagement, and campaign execution across all major platforms."
+    },
+    {
+      "id": 3,
+      "title": "Web & App Development and Management",
+      "icon": "Code2",
+      "description": "We build and maintain modern, responsive websites and custom web & mobile apps — covering development, hosting, optimization, and ongoing management."
+    },
+    {
+      "id": 4,
+      "title": "Video Productions",
+      "icon": "Video",
+      "description": "We produce captivating video content from brand stories and event highlights to short-form social videos and promotional reels crafted to inform, inspire, and influence."
+    },
+    {
+      "id": 5,
+      "title": "Branded Merchandise",
+      "icon": "Package",
+      "description": "We design and deliver high-quality branded merchandise — T-shirts, caps, water bottles, notebooks, diaries, lapel pins, and custom gift boxes perfect for corporate gifting and promotions."
+    }
+]

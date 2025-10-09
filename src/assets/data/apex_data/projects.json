@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Project One",
+    "description": "This is the first project.",
+    "image": "https://picsum.photos/800/500?random=11"
+  },
+  {
+    "id": 2,
+    "title": "Project Two",
+    "description": "This is the second project.",
+    "image": "https://picsum.photos/800/500?random=1"
+  },
+  {
+    "id": 3,
+    "title": "Project Three",
+    "description": "This is the third project.",
+    "image": "https://picsum.photos/800/500?random=11"
+  },
+  {
+    "id": 4,
+    "title": "Project Four",
+    "description": "This is the fourth project.",
+    "image": "https://picsum.photos/800/500?random=11"
+  },
+  {
+    "id": 5,
+    "title": "Project Five",
+    "description": "This is the fifth project.",
+    "image": "https://picsum.photos/800/500?random=11"
+  },
+  {
+    "id": 6,
+    "title": "Project Six",
+    "description": "This is the sixth project.",
+    "image": "https://picsum.photos/800/500?random=11"
+  },
+  {
+    "id": 7,
+    "title": "Project Seven",
+    "description": "This is the seventh project.",
+    "image": "https://picsum.photos/800/500?random=11"
+  }
+]

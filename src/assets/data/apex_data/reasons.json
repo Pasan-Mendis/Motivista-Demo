@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "title": "Creative-Tech Synergy",
+      "icon": "Sparkles",
+      "description": "We believe the best ideas happen when creativity meets technology. Our team blends artistic vision with technical expertise to create solutions that are visually striking, smart, and future-ready."
+    },
+    {
+      "id": 2,
+      "title": "A One-Stop Branding Solution",
+      "icon": "Layers",
+      "description": "From digital campaigns and websites to event creatives and branded merchandise — we ensure consistency, convenience, and cohesion across every touchpoint of your brand."
+    },
+    {
+      "id": 3,
+      "title": "Client-Centric Approach",
+      "icon": "Users",
+      "description": "Every brand is unique, and so is our approach. We take time to understand your goals, your audience, and your story, then tailor our solutions to amplify your identity."
+    },
+    {
+      "id": 4,
+      "title": "Timely Execution with Precision",
+      "icon": "Clock",
+      "description": "In a fast-paced digital world, timing is everything. Our agile team works with efficiency, clear communication, and a sharp focus on meeting deadlines so you’re always ahead of the curve."
+    }
+  ]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "End-to-End Management",
+    "description": "From concept to execution, we handle everything — planning, logistics, production, and post-event follow-up — ensuring a seamless experience for you.",
+    "icon": "ClipboardCheck"
+  },
+  {
+    "id": 2,
+    "title": "Creative & Bespoke Solutions",
+    "description": "Every event is unique. We design custom concepts and experiences tailored to your brand, audience, and goals.",
+    "icon": "Sparkles"
+  },
+  {
+    "id": 3,
+    "title": "Premium Vendor Network",
+    "description": "Our trusted network of premium vendors guarantees top-quality services and products for every aspect of your event.",
+    "icon": "Users"
+  },
+  {
+    "id": 4,
+    "title": "Cutting-Edge Tech & Production",
+    "description": "We leverage the latest technology, stagecraft, and production techniques to deliver visually stunning and impactful events.",
+    "icon": "Cpu"
+  },
+  {
+    "id": 5,
+    "title": "Meticulous Attention to Detail",
+    "description": "We plan with precision and execute flawlessly, ensuring every detail exceeds expectations.",
+    "icon": "ZoomIn"
+  },
+  {
+    "id": 6,
+    "title": "Sustainability & Social Impact Focus",
+    "description": "We integrate eco-friendly practices and support local communities, making your event not just impactful but meaningful.",
+    "icon": "Leaf"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "position": "CEO, TechCorp",
+    "feedback": "Motivista Apex transformed our digital presence. Their creativity and professionalism are unmatched.",
+    "image": "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Sarah Lee",
+    "position": "Marketing Head, Brandify",
+    "feedback": "Working with this team was a game-changer. They truly understand branding and execution.",
+    "image": "https://randomuser.me/api/portraits/women/44.jpg"
+  },
+  {
+    "id": 3,
+    "name": "David Kim",
+    "position": "Event Organizer",
+    "feedback": "The event was flawless, thanks to their management. Highly recommend Motivista Apex.",
+    "image": "https://randomuser.me/api/portraits/men/65.jpg"
+  }
+]

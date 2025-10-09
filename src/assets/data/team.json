@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "role": "Marketing Head",
+    "image": "team1.jpg",
+    "linkedin": "https://linkedin.com/in/johndoe",
+    "facebook": "https://facebook.com/johndoe",
+    "email": "mailto:johndoe@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Alex Wassabi",
+    "role": "CEO",
+    "image": "alexwassabi.jpg",
+    "linkedin": "https://linkedin.com/in/janesmith",
+    "facebook": "https://facebook.com/janesmith",
+    "email": "mailto:janesmith@example.com"
+  },
+  {
+    "id": 3,
+    "name": "Alice Johnson",
+    "role": "Event Manager",
+    "image": "team2.jpg",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 4,
+    "name": "Alice Johnson",
+    "role": "Event Manager",
+    "image": "team2.jpg",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 5,
+    "name": "Alice Johnson",
+    "role": "Event Manager",
+    "image": "team2.jpg",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 6,
+    "name": "Alice Johnson",
+    "role": "Event Manager",
+    "image": "team2.jpg",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 7,
+    "name": "Alice Johnson",
+    "role": "Event Manager",
+    "image": "team2.jpg",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  }
+]

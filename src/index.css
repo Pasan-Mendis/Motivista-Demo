@@ -1,0 +1,194 @@
+/* index.css */
+
+/* Tailwind v4 import */
+@import "tailwindcss";
+
+/* External libraries */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+/* ------------------------------
+   GLOBAL STYLES
+------------------------------ */
+:root {
+  /* Company Brand Colors */
+  --color-primary: #0A0903;   /* Dark charcoal - main brand */
+  --color-secondary: #3A3535; /* Deep gray - primary accent */
+  --color-accent: #FF7315;    /* Warm orange - secondary accent */
+  --color-highlight: #F7922A; /* Golden yellow - highlights */
+  --color-background: #F4F4F4; /* Cream - light background */
+
+  /* Extended palette for better design flexibility */
+  --color-primary-dark: #050301;
+  --color-primary-light: #1E1B1B;
+
+  --color-secondary-dark: #2A2626;
+  --color-secondary-light: #4A4545;
+
+  --color-accent-dark: #f36b11;
+  --color-accent-light: #FF8C40;
+
+  --color-highlight-dark: #DB7E1F;
+  --color-highlight-light: #FFB566;
+
+  --color-background-dark: #EAEAEA;
+
+  /* Neutral tones (derived from secondary/primary mix) */
+  --color-neutral: #5C5555;
+  --color-neutral-light: #777070;
+  --color-neutral-dark: #3D3838;
+
+  /* White and grayscale (cooler, to stay on brand) */
+  --color-white: #ffffff;
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #F0F0F0;
+  --color-gray-200: #E0E0E0;
+  --color-gray-300: #CCCCCC;
+  --color-gray-400: #999999;
+  --color-gray-500: #777777;
+  --color-gray-600: #555555;
+  --color-gray-700: #3A3535; /* aligned with secondary */
+  --color-gray-800: #242222;
+  --color-gray-900: #0A0903; /* aligned with primary */
+
+  /* Fonts */
+  --font-sans: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-heading: "Poppins", var(--font-sans);
+
+  /* Shadows */
+  --shadow-card: 0 4px 12px rgba(10, 9, 3, 0.08);
+  --shadow-card-hover: 0 6px 16px rgba(10, 9, 3, 0.12);
+
+  /* Border Radius */
+  --radius-card: 1rem;
+
+  --overlay-accent-light: rgba(255, 115, 21, 0.1);
+  --overlay-accent-1: rgba(255, 115, 21, 0.8);
+  --overlay-accent-2: rgba(247, 146, 42, 0.6);
+  --overlay-white-20: rgba(255, 255, 255, 0.2);
+  --overlay-white-30: rgba(255, 255, 255, 0.3);
+}
+
+:root {
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: var(--color-primary);
+  background-color: var(--color-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: var(--color-secondary);
+  text-decoration: inherit;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Body */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  text-shadow: none;
+  -webkit-text-stroke: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+button:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-highlight);
+  transform: translateY(-1px);
+}
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+/* ------------------------------
+   ANIMATIONS
+------------------------------ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(2deg); }
+  66% { transform: translateY(10px) rotate(-2deg); }
+}
+@keyframes float-delay {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(15px) rotate(-2deg); }
+  66% { transform: translateY(-10px) rotate(2deg); }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(247, 146, 42, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(247, 146, 42, 0.6), 0 0 30px rgba(247, 146, 42, 0.4); }
+}
+@keyframes pulse-warm {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float-delay {
+  animation: float-delay 10s ease-in-out infinite;
+}
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+.animate-pulse-warm {
+  animation: pulse-warm 2s ease-in-out infinite;
+}
+
+/* ------------------------------
+   LIGHT MODE
+------------------------------ */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-primary);
+    background-color: var(--color-background);
+  }
+  a:hover {
+    color: var(--color-accent);
+  }
+  button {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+  }
+  button:hover {
+    background-color: var(--color-accent-dark);
+  }
+}

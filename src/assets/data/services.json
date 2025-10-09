@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Brand Tech",
+    "description": "We create innovative digital solutions for your brand.",
+    "image": "MA Icon.png"
+  },
+  {
+    "id": 2,
+    "title": "Event Management",
+    "description": "Planning and executing unforgettable events.",
+    "image": "Event Icon.png"
+  },
+  {
+    "id": 3,
+    "title": "Academy of Excellence",
+    "description": "Training programs for staff and English courses.",
+    "image": "Academy Icon.png"
+  }
+]
