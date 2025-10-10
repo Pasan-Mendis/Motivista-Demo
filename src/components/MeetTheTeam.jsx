@@ -1,280 +1,453 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Users, Award, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import teamMembers from "../services/teamData";
 import TeamCard from "./TeamCard";
 
-// Custom TeamCard wrapper component
-const CustomTeamCard = ({ member, index }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  return (
-    <div 
-      className="group !relative"
-      style={{
-        animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
-      }}
-    >
-      <div 
-        className="!relative !overflow-hidden !transition-all !duration-300 !ease-out"
-        style={{
-          backgroundColor: 'var(--color-white)',
-          borderRadius: 'var(--radius-card)',
-          boxShadow: isHovered ? 'var(--shadow-card-hover)' : 'var(--shadow-card)',
-          minHeight: '420px',
-          transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
-          willChange: 'transform, box-shadow',
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <TeamCard member={member} />
-        
-        {/* Overlay name tag */}
-        <div 
-          className="!absolute !bottom-0 !left-0 !right-0 !p-6 !pointer-events-none"
-          style={{
-            background: 'linear-gradient(180deg, transparent 0%, rgba(10, 9, 3, 0.95) 40%)',
-            transform: isHovered ? 'translateY(0)' : 'translateY(100%)',
-            transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-            willChange: 'transform',
-          }}
-        >
-          <div 
-            className="!border-l-4 !pl-4 !py-2"
-            style={{
-              borderColor: 'var(--color-accent)',
-            }}
-          >
-            <h3 
-              className="!text-xl !font-bold !mb-1 !tracking-tight"
-              style={{ color: 'var(--color-white)' }}
-            >
-              {member.name}
-            </h3>
-            <p 
-              className="!text-sm !font-semibold !uppercase !tracking-widest"
-              style={{ color: 'var(--color-highlight)' }}
-            >
-              {member.role}
-            </p>
-          </div>
-        </div>
-
-        {/* Accent corner */}
-        <div 
-          className="!absolute !top-0 !right-0 !w-20 !h-20 !pointer-events-none !transition-opacity !duration-300"
-          style={{
-            background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-highlight) 100%)',
-            clipPath: 'polygon(100% 0, 100% 100%, 0 0)',
-            opacity: isHovered ? 1 : 0,
-            willChange: 'opacity',
-          }}
-        />
-      </div>
-    </div>
-  );
-};
+const SWIPE_THRESHOLD = 50;
+const TRANSITION_DURATION = 500;
 
 const MeetTheTeam = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchMoveX, setTouchMoveX] = useState(0);
+  const [isSwiping, setIsSwiping] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  // Sort team members by id
+  const sortedTeamMembers = [...teamMembers].sort((a, b) => a.id - b.id);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) setItemsPerPage(1);
-      else if (window.innerWidth < 1024) setItemsPerPage(2);
-      else setItemsPerPage(4);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const nextSlide = () => {
-    if (currentIndex + itemsPerPage < teamMembers.length && !isAnimating) {
-      setIsAnimating(true);
-      setCurrentIndex(currentIndex + itemsPerPage);
-      setTimeout(() => setIsAnimating(false), 600);
-    }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+    setIsSwiping(true);
   };
 
-  const prevSlide = () => {
-    if (currentIndex - itemsPerPage >= 0 && !isAnimating) {
-      setIsAnimating(true);
-      setCurrentIndex(currentIndex - itemsPerPage);
-      setTimeout(() => setIsAnimating(false), 600);
-    }
+  const handleTouchMove = (e) => {
+    if (!isSwiping) return;
+    setTouchMoveX(e.targetTouches[0].clientX);
   };
 
-  const visibleMembers = teamMembers.slice(
-    currentIndex,
-    currentIndex + itemsPerPage
-  );
+  const handleTouchEnd = () => {
+    if (!isSwiping) return;
+    const deltaX = touchStartX - touchMoveX;
 
-  const totalPages = Math.ceil(teamMembers.length / itemsPerPage);
-  const currentPage = Math.floor(currentIndex / itemsPerPage);
-  const progressWidth = ((currentPage + 1) / totalPages) * 100;
+    if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
+      if (deltaX > 0) nextMember();
+      else prevMember();
+    }
+    setIsSwiping(false);
+    setTouchMoveX(0);
+  };
+
+  const nextMember = () => {
+    setActiveIndex((prev) => (prev + 1) % sortedTeamMembers.length);
+  };
+
+  const prevMember = () => {
+    setActiveIndex((prev) => (prev - 1 + sortedTeamMembers.length) % sortedTeamMembers.length);
+  };
+
+  const getVisibleCards = () => {
+    const total = sortedTeamMembers.length;
+    const cards = [];
+    for (let i = -2; i <= 2; i++) {
+      const index = (activeIndex + i + total) % total;
+      cards.push({ member: sortedTeamMembers[index], index, position: i });
+    }
+    return cards;
+  };
+
+  const getCardStyle = (position) => {
+    const isMobileView = isMobile;
+    const positions = {
+      "-2": {
+        x: isMobileView ? -220 : -600,
+        scale: isMobileView ? 0.6 : 0.7,
+        opacity: 0.2,
+        zIndex: 10,
+        blur: 2,
+      },
+      "-1": {
+        x: isMobileView ? -120 : -310,
+        scale: isMobileView ? 0.8 : 0.85,
+        opacity: 0.5,
+        zIndex: 20,
+        blur: 1,
+      },
+      "0": {
+        x: 0,
+        scale: 1,
+        opacity: 1,
+        zIndex: 40,
+        blur: 0,
+      },
+      "1": {
+        x: isMobileView ? 120 : 310,
+        scale: isMobileView ? 0.8 : 0.85,
+        opacity: 0.5,
+        zIndex: 20,
+        blur: 1,
+      },
+      "2": {
+        x: isMobileView ? 220 : 600,
+        scale: isMobileView ? 0.6 : 0.7,
+        opacity: 0.2,
+        zIndex: 10,
+        blur: 2,
+      },
+    };
+    return positions[position.toString()] || positions["2"];
+  };
+
+  const visibleCards = getVisibleCards();
 
   return (
-    <section 
-      className="!relative !overflow-hidden"
-      style={{
-        backgroundColor: 'var(--color-background)',
-        padding: '5rem 0',
-      }}
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24"
+      style={{ backgroundColor: "var(--color-background)" }}
     >
-      {/* Background Decorations */}
-      <div className="!absolute !inset-0 !pointer-events-none !opacity-30">
-        <div 
-          className="!absolute !top-0 !left-0 !w-96 !h-96 !rounded-full !blur-3xl"
+      {/* Background decorations */}
+      <div className="absolute inset-0 pointer-events-none opacity-30">
+        <div
+          className="absolute top-0 left-0 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 rounded-full blur-3xl"
           style={{
-            background: 'radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%)',
-            animation: 'float 20s ease-in-out infinite',
+            background: "radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%)",
+            animation: "float 20s ease-in-out infinite",
           }}
         />
-        <div 
-          className="!absolute !bottom-0 !right-0 !w-96 !h-96 !rounded-full !blur-3xl"
+        <div
+          className="absolute bottom-0 right-0 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 rounded-full blur-3xl"
           style={{
-            background: 'radial-gradient(circle, var(--color-highlight-light) 0%, transparent 70%)',
-            animation: 'float-delay 25s ease-in-out infinite',
+            background: "radial-gradient(circle, var(--color-highlight-light) 0%, transparent 70%)",
+            animation: "float-delay 25s ease-in-out infinite",
           }}
         />
       </div>
 
-      <div className="!max-w-7xl !mx-auto !px-4 sm:!px-6 !relative !z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="!text-center !mb-16">
-          <div 
-            className="!inline-flex !items-center !gap-2 !px-5 !py-2.5 !rounded-full !mb-6 !border"
+        <div
+          className={`text-center mb-10 sm:mb-12 lg:mb-16 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div
+            className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-6 border"
             style={{
-              backgroundColor: 'var(--color-white)',
-              borderColor: 'var(--color-gray-200)',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+              backgroundColor: "var(--color-white)",
+              borderColor: "var(--color-gray-200)",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
             }}
           >
-            <Sparkles 
-              className="!w-4 !h-4" 
-              style={{ color: 'var(--color-accent)' }}
+            <Sparkles
+              className="w-3 h-3 sm:w-4 sm:h-4"
+              style={{ color: "var(--color-accent)" }}
             />
-            <span 
-              className="!text-xs !font-bold !uppercase !tracking-widest"
-              style={{ color: 'var(--color-secondary)' }}
+            <span
+              className="text-xs font-bold uppercase tracking-widest"
+              style={{ color: "var(--color-secondary)" }}
             >
               Our Team
             </span>
           </div>
 
-          <h2 
-            className="!text-4xl md:!text-6xl lg:!text-7xl !font-black !mb-6 !leading-tight"
-            style={{ 
-              color: 'var(--color-primary)',
-              fontFamily: 'var(--font-heading)',
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 leading-tight px-4"
+            style={{
+              color: "var(--color-primary)",
+              fontFamily: "var(--font-heading)",
             }}
           >
-            Meet The{' '}
-            <span 
+            Meet The{" "}
+            <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: 'linear-gradient(135deg, var(--color-accent), var(--color-highlight))',
+                backgroundImage:
+                  "linear-gradient(135deg, var(--color-accent), var(--color-highlight))",
               }}
             >
               Dream Team
             </span>
           </h2>
 
-          <p 
-            className="!text-base sm:!text-lg !max-w-2xl !mx-auto"
-            style={{ color: 'var(--color-neutral)' }}
+          <p
+            className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4"
+            style={{ color: "var(--color-neutral)" }}
           >
             The creative minds behind every successful project
           </p>
         </div>
 
-        {/* Team Carousel */}
-        <div className="!relative" ref={containerRef}>
-          <div className="!flex !items-center !gap-4 sm:!gap-8">
-            {/* Previous Button */}
-            <button
-              onClick={prevSlide}
-              disabled={currentIndex === 0}
-              className="!flex-shrink-0 !w-12 !h-12 sm:!w-14 sm:!h-14 !rounded-2xl !flex !items-center !justify-center !border-2 !transition-all !duration-300 !group"
-              style={{
-                backgroundColor: currentIndex === 0 ? 'var(--color-gray-100)' : 'var(--color-white)',
-                borderColor: currentIndex === 0 ? 'var(--color-gray-200)' : 'var(--color-primary)',
-                cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
-                boxShadow: currentIndex === 0 ? 'none' : '0 4px 12px rgba(10, 9, 3, 0.1)',
-              }}
-            >
-              <ChevronLeft
-                className="!w-6 !h-6 sm:!w-7 sm:!h-7"
+        {/* Cards */}
+        <div className="relative overflow-hidden">
+          {!isMobile && (
+            <>
+              <button
+                onClick={prevMember}
+                className="absolute left-0 lg:left-4 xl:left-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 lg:w-14 lg:h-14 rounded-2xl flex items-center justify-center border-2 transition-all duration-300 hover:scale-110 hover:shadow-lg"
                 style={{
-                  color: currentIndex === 0 ? 'var(--color-gray-400)' : 'var(--color-primary)',
+                  backgroundColor: "var(--color-white)",
+                  borderColor: "var(--color-primary)",
+                  boxShadow: "0 4px 12px rgba(10, 9, 3, 0.1)",
                 }}
-              />
-            </button>
-
-            {/* Cards */}
-            <div className="!flex-1 !overflow-hidden">
-              <div className="!grid !grid-cols-1 sm:!grid-cols-2 lg:!grid-cols-4 !gap-4 sm:!gap-6">
-                {visibleMembers.map((member, index) => (
-                  <CustomTeamCard key={member.id} member={member} index={index} />
-                ))}
-              </div>
-            </div>
-
-            {/* Next Button */}
-            <button
-              onClick={nextSlide}
-              disabled={currentIndex + itemsPerPage >= teamMembers.length}
-              className="!flex-shrink-0 !w-12 !h-12 sm:!w-14 sm:!h-14 !rounded-2xl !flex !items-center !justify-center !border-2 !transition-all !duration-300 !group"
-              style={{
-                backgroundColor: currentIndex + itemsPerPage >= teamMembers.length ? 'var(--color-gray-100)' : 'var(--color-white)',
-                borderColor: currentIndex + itemsPerPage >= teamMembers.length ? 'var(--color-gray-200)' : 'var(--color-primary)',
-                cursor: currentIndex + itemsPerPage >= teamMembers.length ? 'not-allowed' : 'pointer',
-                boxShadow: currentIndex + itemsPerPage >= teamMembers.length ? 'none' : '0 4px 12px rgba(10, 9, 3, 0.1)',
-              }}
-            >
-              <ChevronRight
-                className="!w-6 !h-6 sm:!w-7 sm:!h-7"
+              >
+                <ChevronLeft
+                  className="w-6 h-6 lg:w-7 lg:h-7"
+                  style={{ color: "var(--color-primary)" }}
+                />
+              </button>
+              <button
+                onClick={nextMember}
+                className="absolute right-0 lg:right-4 xl:right-8 top-1/2 -translate-y-1/2 z-50 w-12 h-12 lg:w-14 lg:h-14 rounded-2xl flex items-center justify-center border-2 transition-all duration-300 hover:scale-110 hover:shadow-lg"
                 style={{
-                  color: currentIndex + itemsPerPage >= teamMembers.length ? 'var(--color-gray-400)' : 'var(--color-primary)',
+                  backgroundColor: "var(--color-white)",
+                  borderColor: "var(--color-primary)",
+                  boxShadow: "0 4px 12px rgba(10, 9, 3, 0.1)",
                 }}
-              />
-            </button>
+              >
+                <ChevronRight
+                  className="w-6 h-6 lg:w-7 lg:h-7"
+                  style={{ color: "var(--color-primary)" }}
+                />
+              </button>
+            </>
+          )}
+
+          <div
+            ref={containerRef}
+            className="relative mx-auto"
+            style={{
+              height: isMobile ? "500px" : "650px",
+              marginTop: isMobile ? "20px" : "40px",
+              overflow: "visible",
+              touchAction: "pan-y",
+            }}
+            onTouchStart={isMobile ? handleTouchStart : undefined}
+            onTouchMove={isMobile ? handleTouchMove : undefined}
+            onTouchEnd={isMobile ? handleTouchEnd : undefined}
+          >
+            {visibleCards.map(({ member, index, position }) => {
+              const style = getCardStyle(position);
+              const isActive = position === 0;
+              const transition = `transform ${TRANSITION_DURATION}ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity ${TRANSITION_DURATION}ms ease, filter ${TRANSITION_DURATION}ms ease`;
+
+              return (
+                <div
+                  key={index}
+                  className="absolute top-1/2 left-1/2"
+                  style={{
+                    transform: `translate(-50%, -50%) translateX(${style.x}px) scale(${style.scale})`,
+                    opacity: style.opacity,
+                    zIndex: style.zIndex,
+                    transition,
+                    width: isMobile ? "260px" : "320px",
+                    filter: `blur(${style.blur}px)`,
+                  }}
+                  onClick={() => !isActive && setActiveIndex(index)}
+                >
+                  {/* Card Wrapper */}
+                  <div 
+                    className="!relative !overflow-hidden !rounded-2xl sm:!rounded-3xl"
+                    style={{
+                      backgroundColor: 'var(--color-white)',
+                      boxShadow: isActive 
+                        ? '0 30px 60px rgba(255, 115, 21, 0.35), 0 0 0 4px var(--color-accent)' 
+                        : 'var(--shadow-card)',
+                      border: isActive 
+                        ? 'none'
+                        : '1px solid var(--color-gray-200)',
+                      transform: isActive ? 'translateY(-8px)' : 'translateY(0)',
+                      transition: `all ${TRANSITION_DURATION}ms cubic-bezier(0.34, 1.56, 0.64, 1)`,
+                      minHeight: '420px',
+                    }}
+                  >
+                    {/* TeamCard Component */}
+                    <div className="!relative">
+                      <TeamCard member={member} />
+                      
+                      {/* Overlay name tag */}
+                      <div 
+                        className="!absolute !bottom-0 !left-0 !right-0 !p-6 !pointer-events-none"
+                        style={{
+                          background: 'linear-gradient(180deg, transparent 0%, rgba(10, 9, 3, 0.95) 40%)',
+                          transform: isActive ? 'translateY(0)' : 'translateY(100%)',
+                          opacity: isActive ? 1 : 0,
+                          transition: `transform ${TRANSITION_DURATION}ms cubic-bezier(0.34, 1.56, 0.64, 1) 300ms, opacity ${TRANSITION_DURATION}ms ease 300ms`,
+                          willChange: 'transform, opacity',
+                        }}
+                      >
+                        <div 
+                          className="!border-l-4 !pl-4 !py-2"
+                          style={{
+                            borderColor: 'var(--color-accent)',
+                            transform: isActive ? 'translateX(0)' : 'translateX(-20px)',
+                            opacity: isActive ? 1 : 0,
+                            transition: `transform ${TRANSITION_DURATION}ms cubic-bezier(0.34, 1.56, 0.64, 1) 500ms, opacity 400ms ease 500ms`,
+                          }}
+                        >
+                          <h3 
+                            className="!text-xl !font-bold !mb-1 !tracking-tight"
+                            style={{ 
+                              color: 'var(--color-white)',
+                              transform: isActive ? 'translateY(0)' : 'translateY(10px)',
+                              opacity: isActive ? 1 : 0,
+                              transition: `transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1) 600ms, opacity 300ms ease 600ms`,
+                            }}
+                          >
+                            {member.name}
+                          </h3>
+                          <p 
+                            className="!text-sm !font-semibold !uppercase !tracking-widest"
+                            style={{ 
+                              color: 'var(--color-highlight)',
+                              transform: isActive ? 'translateY(0)' : 'translateY(10px)',
+                              opacity: isActive ? 1 : 0,
+                              transition: `transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1) 700ms, opacity 300ms ease 700ms`,
+                            }}
+                          >
+                            {member.role}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Corner Accent Triangle */}
+                    <div 
+                      className="!absolute !top-0 !left-0"
+                      style={{
+                        width: isActive ? '64px' : '0px',
+                        height: isActive ? '64px' : '0px',
+                        background: 'linear-gradient(135deg, var(--color-accent), transparent)',
+                        clipPath: 'polygon(0 0, 100% 0, 0 100%)',
+                        opacity: isActive ? 0.8 : 0,
+                        transition: `all ${TRANSITION_DURATION}ms cubic-bezier(0.34, 1.56, 0.64, 1) 100ms`,
+                      }}
+                    />
+
+                    {/* Bottom Accent Line */}
+                    <div 
+                      className="!absolute !bottom-0 !left-0 !right-0 !h-1"
+                      style={{
+                        background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight), var(--color-accent))',
+                        transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
+                        transformOrigin: 'center',
+                        transition: `transform ${TRANSITION_DURATION}ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms`,
+                      }}
+                    />
+
+                    {/* Side Glow Effects */}
+                    {isActive && (
+                      <>
+                        <div 
+                          className="!absolute !top-1/2 !-left-2 !w-2 !h-24 !rounded-r-full"
+                          style={{
+                            background: 'linear-gradient(90deg, var(--color-accent), transparent)',
+                            transform: 'translateY(-50%)',
+                            opacity: 0.4,
+                            filter: 'blur(8px)',
+                            animation: 'fadeInGlow 0.6s ease 0.3s both',
+                          }}
+                        />
+                        <div 
+                          className="!absolute !top-1/2 !-right-2 !w-2 !h-24 !rounded-l-full"
+                          style={{
+                            background: 'linear-gradient(270deg, var(--color-accent), transparent)',
+                            transform: 'translateY(-50%)',
+                            opacity: 0.4,
+                            filter: 'blur(8px)',
+                            animation: 'fadeInGlow 0.6s ease 0.3s both',
+                          }}
+                        />
+                      </>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
-          {/* Premium progress bar instead of buttons */}
-          <div className="!relative !w-full !h-2 !rounded-full !overflow-hidden !mt-10 !bg-gray-200/60">
-            <div
-              className="!absolute !top-0 !left-0 !h-full !rounded-full"
-              style={{
-                width: `${progressWidth}%`,
-                background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight))',
-                transition: 'width 0.6s ease, background 0.6s ease',
-                boxShadow: '0 0 10px var(--overlay-accent-2)',
-              }}
-            />
+          {isMobile && (
+            <div className="text-center mt-6 sm:mt-8">
+              <p
+                className="text-xs sm:text-sm font-medium flex items-center justify-center gap-2"
+                style={{ color: "var(--color-neutral)" }}
+              >
+                <span>←</span> Swipe to explore <span>→</span>
+              </p>
+            </div>
+          )}
+
+          {/* Progress Bar */}
+          <div className="flex justify-center mt-10 sm:mt-12 px-4">
+            <div className="w-full max-w-md">
+              <div 
+                className="relative h-2 rounded-full"
+                style={{
+                  backgroundColor: 'var(--color-gray-200)',
+                }}
+              >
+                <div 
+                  className="absolute top-0 left-0 h-full rounded-full"
+                  style={{
+                    width: `${((activeIndex + 1) / sortedTeamMembers.length) * 100}%`,
+                    background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight))',
+                    transition: 'width 0.6s ease',
+                  }}
+                />
+              </div>
+            </div>
           </div>
 
           {/* Page Counter */}
-          <div className="!text-center !mt-4">
+          <div className="text-center mt-4 sm:mt-6">
             <span 
-              className="!text-sm !font-semibold"
+              className="text-base sm:text-lg font-bold"
+              style={{ 
+                color: 'var(--color-primary)',
+                fontFamily: 'var(--font-heading)',
+              }}
+            >
+              {activeIndex + 1}
+            </span>
+            <span 
+              className="text-xs sm:text-sm font-medium mx-2"
               style={{ color: 'var(--color-neutral)' }}
             >
-              {currentPage + 1} / {totalPages}
+              of
+            </span>
+            <span 
+              className="text-base sm:text-lg font-bold"
+              style={{ 
+                color: 'var(--color-primary)',
+                fontFamily: 'var(--font-heading)',
+              }}
+            >
+              {sortedTeamMembers.length}
             </span>
           </div>
         </div>
       </div>
 
       <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); }
           50% { transform: translateY(-30px) translateX(20px); }
@@ -282,6 +455,16 @@ const MeetTheTeam = () => {
         @keyframes float-delay {
           0%, 100% { transform: translateY(0px) translateX(0px); }
           50% { transform: translateY(30px) translateX(-20px); }
+        }
+        @keyframes fadeInGlow {
+          from {
+            opacity: 0;
+            filter: blur(12px);
+          }
+          to {
+            opacity: 0.4;
+            filter: blur(8px);
+          }
         }
       `}</style>
     </section>
