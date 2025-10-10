@@ -192,41 +192,6 @@ const MeetTheTeam = () => {
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="!flex !flex-wrap !justify-center !gap-8 sm:!gap-16 !mb-16">
-          {[
-            { icon: Users, value: `${teamMembers.length}+`, label: "Team Members", color: "var(--color-primary)" },
-            { icon: Award, value: "50+", label: "Projects Delivered", color: "var(--color-accent)" },
-          ].map((stat, i) => (
-            <div key={i} className="!text-center !group">
-              <div
-                className="!flex !items-center !justify-center !w-16 !h-16 sm:!w-20 sm:!h-20 !rounded-2xl !mb-4 !mx-auto !transition-all !duration-500 group-hover:!scale-110"
-                style={{
-                  backgroundColor: 'var(--color-white)',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
-                }}
-              >
-                <stat.icon
-                  className="!w-7 !h-7 sm:!w-9 sm:!h-9 !transition-transform !duration-500 group-hover:!rotate-12"
-                  style={{ color: stat.color }}
-                />
-              </div>
-              <div 
-                className="!text-2xl sm:!text-3xl !font-black !mb-1"
-                style={{ color: 'var(--color-primary)' }}
-              >
-                {stat.value}
-              </div>
-              <div 
-                className="!text-xs sm:!text-sm !uppercase !tracking-wider !font-semibold"
-                style={{ color: 'var(--color-neutral)' }}
-              >
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
         {/* Team Carousel */}
         <div className="!relative" ref={containerRef}>
           <div className="!flex !items-center !gap-4 sm:!gap-8">

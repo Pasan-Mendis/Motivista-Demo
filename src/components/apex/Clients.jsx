@@ -26,7 +26,7 @@ export default function Clients() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] tracking-tight"
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-primary)] tracking-tight"
         >
           Our Clients
         </motion.h2>
@@ -35,7 +35,7 @@ export default function Clients() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-lg text-[var(--color-neutral)] max-w-2xl mx-auto mt-4 leading-relaxed"
+          className="text-sm sm:text-base text-[var(--color-neutral)] max-w-md sm:max-w-2xl mx-auto mt-4 leading-relaxed"
         >
           We’re proud to partner with forward-thinking companies who trust us to bring their vision to life.
         </motion.p>
@@ -45,19 +45,19 @@ export default function Clients() {
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="overflow-hidden">
           <motion.div
-            className="flex gap-12"
+            className="flex gap-6 sm:gap-12"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
           >
             {[...clients, ...clients].map((client, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex items-center justify-center w-52 h-36 rounded-2xl bg-white/60 backdrop-blur-md border border-white/20 shadow-md hover:shadow-xl transition-all duration-500 group"
+                className="flex-shrink-0 flex items-center justify-center w-36 sm:w-52 h-24 sm:h-36 rounded-2xl bg-white/60 backdrop-blur-md border border-white/20 shadow-md hover:shadow-xl transition-all duration-500 group"
               >
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-16 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  className="max-h-12 sm:max-h-16 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                 />
               </div>
             ))}
@@ -67,7 +67,7 @@ export default function Clients() {
 
       {/* optional underline */}
       <div className="relative mt-12 text-center">
-        <span className="inline-block w-24 h-1 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-highlight)] rounded-full"></span>
+        <span className="inline-block w-16 sm:w-24 h-1 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-highlight)] rounded-full"></span>
       </div>
     </section>
   );

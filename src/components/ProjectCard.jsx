@@ -1,5 +1,6 @@
 // src/components/ProjectCard.jsx
 import React from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 

@@ -1,63 +1,162 @@
 [
   {
     "id": 1,
-    "name": "John Doe",
+    "name": "Pasan Mendis",
     "role": "Marketing Head",
-    "image": "team1.jpg",
+    "image": "Pasan-Mendis.png",
     "linkedin": "https://linkedin.com/in/johndoe",
     "facebook": "https://facebook.com/johndoe",
     "email": "mailto:johndoe@example.com"
   },
   {
     "id": 2,
-    "name": "Alex Wassabi",
+    "name": "Didula Kavinda",
     "role": "CEO",
-    "image": "alexwassabi.jpg",
+    "image": "Didula.png",
     "linkedin": "https://linkedin.com/in/janesmith",
     "facebook": "https://facebook.com/janesmith",
     "email": "mailto:janesmith@example.com"
   },
   {
     "id": 3,
-    "name": "Alice Johnson",
+    "name": "Dilmini Mendis",
     "role": "Event Manager",
-    "image": "team2.jpg",
+    "image": "Dilmini.png",
     "linkedin": "https://linkedin.com/in/alicejohnson",
     "facebook": "https://facebook.com/alicejohnson",
     "email": "mailto:alicejohnson@example.com"
   },
   {
     "id": 4,
-    "name": "Alice Johnson",
+    "name": "Dilshan Peiris",
     "role": "Event Manager",
-    "image": "team2.jpg",
+    "image": "Dilshan.png",
     "linkedin": "https://linkedin.com/in/alicejohnson",
     "facebook": "https://facebook.com/alicejohnson",
     "email": "mailto:alicejohnson@example.com"
   },
   {
     "id": 5,
-    "name": "Alice Johnson",
+    "name": "Malinda Ganewatta",
     "role": "Event Manager",
-    "image": "team2.jpg",
+    "image": "Malinda.png",
     "linkedin": "https://linkedin.com/in/alicejohnson",
     "facebook": "https://facebook.com/alicejohnson",
     "email": "mailto:alicejohnson@example.com"
   },
   {
     "id": 6,
-    "name": "Alice Johnson",
+    "name": "Shamindya Rupasinghe",
     "role": "Event Manager",
-    "image": "team2.jpg",
+    "image": "Shamindya.png",
     "linkedin": "https://linkedin.com/in/alicejohnson",
     "facebook": "https://facebook.com/alicejohnson",
     "email": "mailto:alicejohnson@example.com"
   },
   {
     "id": 7,
-    "name": "Alice Johnson",
+    "name": "Sineth Wickramaarachchi",
     "role": "Event Manager",
-    "image": "team2.jpg",
+    "image": "Sineth.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 8,
+    "name": "Imeth Nisala",
+    "role": "Event Manager",
+    "image": "Nisala.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 9,
+    "name": "Mohomed Humaid",
+    "role": "Event Manager",
+    "image": "Humaid.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 10,
+    "name": "Thisaruni Wijebandara",
+    "role": "Event Manager",
+    "image": "Thisaruni.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 11,
+    "name": "Ridma Abeysinghe",
+    "role": "Event Manager",
+    "image": "Ridma.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 12,
+    "name": "Vishmi Bollegala",
+    "role": "Event Manager",
+    "image": "Vishmi.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 13,
+    "name": "Aaqel Mohamed",
+    "role": "Event Manager",
+    "image": "Aaqel.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 14,
+    "name": "Panchami Padukka",
+    "role": "Event Manager",
+    "image": "Panchami.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 15,
+    "name": "Manthila Gamage",
+    "role": "Event Manager",
+    "image": "Manthila.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 16,
+    "name": "Shanelka Dissanayake",
+    "role": "Event Manager",
+    "image": "Shanelka.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 17,
+    "name": "Vihara Jayaweera",
+    "role": "Event Manager",
+    "image": "Vihara.png",
+    "linkedin": "https://linkedin.com/in/alicejohnson",
+    "facebook": "https://facebook.com/alicejohnson",
+    "email": "mailto:alicejohnson@example.com"
+  },
+  {
+    "id": 18,
+    "name": "Sanduni Charundya⁠",
+    "role": "Event Manager",
+    "image": "Sanduni.png",
     "linkedin": "https://linkedin.com/in/alicejohnson",
     "facebook": "https://facebook.com/alicejohnson",
     "email": "mailto:alicejohnson@example.com"

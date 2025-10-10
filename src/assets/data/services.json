@@ -1,20 +1,23 @@
 [
   {
     "id": 1,
-    "title": "Brand Tech",
-    "description": "We create innovative digital solutions for your brand.",
-    "image": "MA Icon.png"
+    "title": "Motivista Apex",
+    "description": "Your strategic partner in brand innovation, digital transformation and creative excellence.",
+    "image": "MA Icon.png",
+    "link": "/Apex"
   },
   {
     "id": 2,
-    "title": "Event Management",
-    "description": "Planning and executing unforgettable events.",
-    "image": "Event Icon.png"
+    "title": "Motivista Events & Productions",
+    "description": "Your trusted partner in bringing dream events to life through impactful experiences and flawless execution.",
+    "image": "Event Icon.png",
+    "link": "/Event"
   },
   {
     "id": 3,
-    "title": "Academy of Excellence",
-    "description": "Training programs for staff and English courses.",
-    "image": "Academy Icon.png"
+    "title": "Motivista Academy of Excellence",
+    "description": "Your skill development partner in professional growth, practical learning and personal transformation.",
+    "image": "Academy Icon.png",
+    "link": "/Academy"
   }
 ]

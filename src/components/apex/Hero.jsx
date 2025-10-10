@@ -104,14 +104,6 @@ const Hero = () => {
       />
 
       {/* Parallax Background Layers */}
-      {/* <div 
-        className="absolute inset-0 transition-all duration-700 ease-out"
-        style={{
-          transform: `translateY(${scrollY * 0.5}px)`,
-          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(255, 115, 21, 0.08) 0%, transparent 50%)`
-        }}
-      /> */}
-      
       <div 
         className="absolute inset-0"
         style={{
@@ -120,7 +112,7 @@ const Hero = () => {
       >
         {/* Floating geometric shapes */}
         <div 
-          className="absolute w-96 h-96 opacity-20 animate-float"
+          className="absolute w-64 sm:w-96 h-64 sm:h-96 opacity-20 animate-float"
           style={{
             top: '10%',
             right: '10%',
@@ -131,7 +123,7 @@ const Hero = () => {
         />
         
         <div 
-          className="absolute w-80 h-80 opacity-15 animate-float-delay"
+          className="absolute w-48 sm:w-80 h-48 sm:h-80 opacity-15 animate-float-delay"
           style={{
             bottom: '15%',
             left: '5%',
@@ -156,24 +148,23 @@ const Hero = () => {
 
       {/* Main Content */}
       <div 
-        className="relative z-20 text-center px-6 max-w-4xl mx-auto"
+        className="relative z-20 text-center px-4 sm:px-6 max-w-4xl mx-auto"
         style={{
           transform: `translateY(${scrollY * -0.2}px)`,
         }}
       >
         
         {/* Tech Logo with 3D effect */}
-        <div className="mb-8 inline-block"
-        >
+        <div className="mb-6 sm:mb-8 inline-block">
           <div className="relative">
-              {/* Replaced SVG with image */}
-              <img
-                src={MALogo}
-                alt="MA Logo"
-                className="w-15 h-15 md:w-25 md:h-25 object-contain"
-              />
+            {/* MA Logo Icon */}
+            <img
+              src={MALogo}
+              alt="MA Logo"
+              className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain mx-auto"
+            />
             <div
-              className="absolute -inset-6 rounded-full blur-xl animate-pulse-warm opacity-60"
+              className="absolute -inset-4 sm:-inset-6 rounded-full blur-xl animate-pulse-warm opacity-60"
               style={{
                 background: `radial-gradient(circle, var(--color-highlight), transparent 70%)`,
               }}
@@ -181,12 +172,8 @@ const Hero = () => {
           </div>
         </div>
 
-
-        {/* Dynamic rotating text */}
-        
-
         {/* Main heading with parallax layers */}
-        <div className="relative mb-8">
+        <div className="relative mb-6 sm:mb-8">
           {/* Logo Image with 3D parallax effect */}
           <div
             className="mb-2 inline-block"
@@ -197,24 +184,23 @@ const Hero = () => {
             <img
               src={Logo}
               alt="Company Logo"
-              className="w-81 md:w-107 mx-auto" // increased size
+              className="w-64 sm:w-80 md:w-96 lg:w-107 mx-auto max-w-full"
               style={{
                 filter: 'drop-shadow(0 15px 40px rgba(255,115,21,0.4))',
               }}
             />
           </div>
-
         </div>
 
         {/* Subtitle with typewriter effect */}
         <div 
-          className="max-w-3xl mx-auto mb-16"
+          className="max-w-3xl mx-auto mb-10 sm:mb-16"
           style={{
             transform: `translateY(${scrollY * -0.1}px)`,
           }}
         >
           <p 
-            className="text-xl md:text-2xl leading-relaxed font-light"
+            className="text-base sm:text-xl md:text-2xl leading-relaxed font-light px-2"
             style={{ color: 'var(--color-background)' }}
           >
             Pioneering next-generation brand-tech solutions combining{' '}
@@ -232,9 +218,9 @@ const Hero = () => {
         </div>
 
         {/* CTA Buttons with 3D hover effects */}
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 px-4">
           <button 
-            className="group relative px-10 py-4 font-semibold rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105"
+            className="group relative px-8 sm:px-10 py-3 sm:py-4 font-semibold rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105 w-full sm:w-auto"
             style={{
               background: `linear-gradient(135deg, var(--color-accent), var(--color-highlight))`,
               color: 'var(--color-white)',
@@ -255,7 +241,7 @@ const Hero = () => {
                 background: `linear-gradient(135deg, var(--color-highlight), var(--color-accent))`,
               }}
             />
-            <span className="relative z-10 flex items-center gap-2">
+            <span className="relative z-10 flex items-center justify-center gap-2">
               Explore Services
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -264,7 +250,7 @@ const Hero = () => {
           </button>
           
           <button 
-            className="group px-10 py-4 font-semibold rounded-2xl transition-all duration-500 hover:scale-105"
+            className="group px-8 sm:px-10 py-3 sm:py-4 font-semibold rounded-2xl transition-all duration-500 hover:scale-105 w-full sm:w-auto"
             style={{
               backgroundColor: 'transparent',
               border: `2px solid var(--color-secondary)`,
@@ -288,20 +274,20 @@ const Hero = () => {
 
       {/* Animated scroll indicator */}
       <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
         style={{
           transform: `translateX(-50%) translateY(${scrollY * -0.3}px)`,
         }}
       >
         <div 
-          className="w-6 h-10 rounded-full p-1 border-2"
+          className="w-5 h-8 sm:w-6 sm:h-10 rounded-full p-1 border-2"
           style={{
             borderColor: 'var(--color-accent)',
             backgroundColor: 'rgba(255, 255, 255, 0.1)',
           }}
         >
           <div 
-            className="w-2 h-3 rounded-full mx-auto animate-pulse"
+            className="w-1.5 h-2 sm:w-2 sm:h-3 rounded-full mx-auto animate-pulse"
             style={{
               background: `linear-gradient(to bottom, var(--color-accent), var(--color-highlight))`,
             }}

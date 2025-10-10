@@ -1,24 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
+import { ArrowRight, Zap, Code, Sparkles, CheckCircle } from "lucide-react";
 
 const Intro = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isInView, setIsInView] = useState(false);
-  const [currentChar, setCurrentChar] = useState(0);
+  const [currentWord, setCurrentWord] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const introText = "Pioneering next-generation brand-tech solutions combining innovation, creativity and cutting-edge technology.";
+  const rotatingWords = ["Innovation", "Excellence", "Solutions", "Technology"];
 
-  // Intersection Observer for scroll animations
+  // Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
-        if (entry.isIntersecting) {
-          setCurrentChar(0);
-        }
       },
-      { threshold: 0.4 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -28,42 +26,36 @@ const Intro = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Typewriter effect
+  // Word rotation
   useEffect(() => {
     if (!isInView) return;
     
-    const timer = setTimeout(() => {
-      if (currentChar < introText.length) {
-        setCurrentChar(prev => prev + 1);
-      }
-    }, 20);
+    const timer = setInterval(() => {
+      setCurrentWord((prev) => (prev + 1) % rotatingWords.length);
+    }, 2500);
 
-    return () => clearTimeout(timer);
-  }, [currentChar, isInView, introText.length]);
+    return () => clearInterval(timer);
+  }, [isInView, rotatingWords.length]);
 
-  // Scroll progress tracking
+  // Scroll progress
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const elementTop = rect.top;
-      const elementHeight = rect.height;
-      
-      if (elementTop < windowHeight && elementTop + elementHeight > 0) {
-        const progress = Math.max(0, Math.min(1, 
-          (windowHeight - elementTop) / (windowHeight + elementHeight)
-        ));
-        setScrollProgress(progress);
-      }
+      const progress = Math.max(0, Math.min(1, 
+        (windowHeight - rect.top) / (windowHeight + rect.height)
+      ));
+      setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth wave animation canvas
+  // Animated grid background
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -83,30 +75,40 @@ const Intro = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      const centerY = canvas.height / 2;
-      const amplitude = 40;
-      const frequency = 0.005;
+      // Draw grid
+      ctx.strokeStyle = 'rgba(255, 115, 21, 0.08)';
+      ctx.lineWidth = 1;
       
-      // Draw multiple wave layers
-      for (let layer = 0; layer < 3; layer++) {
+      const gridSize = 50;
+      
+      for (let x = 0; x < canvas.width; x += gridSize) {
         ctx.beginPath();
-        ctx.moveTo(0, centerY);
-        
-        for (let x = 0; x <= canvas.width; x += 2) {
-          const y = centerY + 
-            Math.sin(x * frequency + time * 0.01 + layer * 0.5) * (amplitude - layer * 10) +
-            Math.sin(x * frequency * 2 + time * 0.015) * (10 - layer * 2);
-          ctx.lineTo(x, y);
-        }
-        
-        const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-        gradient.addColorStop(0, `rgba(255, 115, 21, ${0.15 - layer * 0.03})`);
-        gradient.addColorStop(0.5, `rgba(247, 146, 42, ${0.2 - layer * 0.04})`);
-        gradient.addColorStop(1, `rgba(255, 115, 21, ${0.15 - layer * 0.03})`);
-        
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 3 - layer * 0.5;
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
         ctx.stroke();
+      }
+      
+      for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+      
+      // Animated particles
+      for (let i = 0; i < 20; i++) {
+        const x = (Math.sin(time * 0.001 + i) * 0.5 + 0.5) * canvas.width;
+        const y = (Math.cos(time * 0.0015 + i * 0.5) * 0.5 + 0.5) * canvas.height;
+        const size = Math.sin(time * 0.002 + i) * 2 + 3;
+        
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, size * 3);
+        gradient.addColorStop(0, 'rgba(255, 115, 21, 0.3)');
+        gradient.addColorStop(1, 'rgba(247, 146, 42, 0)');
+        
+        ctx.beginPath();
+        ctx.arc(x, y, size * 3, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
       }
       
       time++;
@@ -124,314 +126,340 @@ const Intro = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative overflow-hidden py-24"
-      style={{ backgroundColor: '#F4F4F4' }}
+      className="relative overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32"
+      style={{ backgroundColor: 'var(--color-white)' }}
     >
-      {/* Animated wave canvas */}
+      {/* Animated Canvas Background */}
       <canvas 
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none"
         style={{ 
           width: '100%', 
           height: '100%',
-          opacity: 0.4,
+          opacity: 0.6,
         }}
       />
 
-      {/* Floating accent elements */}
+      {/* Gradient Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute"
-            style={{
-              left: `${20 + i * 30}%`,
-              top: `${30 + i * 20}%`,
-              transform: `
-                translateY(${Math.sin(scrollProgress * Math.PI + i) * 20}px)
-                scale(${0.8 + scrollProgress * 0.4})
-              `,
-              transition: 'transform 0.6s ease-out',
-              opacity: 0.1,
-            }}
-          >
-            <div 
-              style={{
-                width: '96px',
-                height: '96px',
-                borderRadius: '50%',
-                background: `radial-gradient(circle, #FF7315, transparent 70%)`,
-                filter: 'blur(20px)',
-              }}
-            />
-          </div>
-        ))}
+        <div 
+          className="absolute top-10 sm:top-20 -right-10 sm:-right-20 w-64 sm:w-96 md:w-[500px] h-64 sm:h-96 md:h-[500px] rounded-full opacity-20"
+          style={{
+            background: 'radial-gradient(circle, var(--color-accent) 0%, transparent 70%)',
+            filter: 'blur(60px)',
+            transform: `translateY(${scrollProgress * 50}px)`,
+            transition: 'transform 0.3s ease-out',
+          }}
+        />
+        <div 
+          className="absolute -bottom-10 sm:-bottom-20 -left-10 sm:-left-20 w-64 sm:w-96 md:w-[500px] h-64 sm:h-96 md:h-[500px] rounded-full opacity-15"
+          style={{
+            background: 'radial-gradient(circle, var(--color-highlight) 0%, transparent 70%)',
+            filter: 'blur(60px)',
+            transform: `translateY(${-scrollProgress * 50}px)`,
+            transition: 'transform 0.3s ease-out',
+          }}
+        />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Text Content */}
-        <div 
-          style={{
-            transform: `translateX(${isInView ? 0 : -50}px)`,
-            opacity: isInView ? 1 : 0,
-            transition: 'all 1s ease-out',
-          }}
-        >
-          <div className="mb-8">
-            <h2 
-              className="text-4xl md:text-6xl font-black mb-8 leading-tight"
-              style={{ color: '#0A0903' }}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[70vh] sm:min-h-[60vh]">
+          
+          {/* Left Content */}
+          <div 
+            className="lg:col-span-7 space-y-6 sm:space-y-8"
+            style={{
+              transform: `translateX(${isInView ? 0 : -50}px)`,
+              opacity: isInView ? 1 : 0,
+              transition: 'all 1s cubic-bezier(0.23, 1, 0.32, 1)',
+            }}
+          >
+            {/* Badge */}
+            <div 
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full border backdrop-blur-sm"
+              style={{
+                backgroundColor: 'var(--overlay-accent-light)',
+                borderColor: 'var(--color-accent)',
+              }}
             >
-              Pioneering Brand-Tech{' '}
+              <Sparkles size={14} className="sm:w-4 sm:h-4" style={{ color: 'var(--color-accent)' }} />
               <span 
-                style={{
-                  background: `linear-gradient(135deg, #FF7315, #F7922A)`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
+                className="text-xs sm:text-sm font-semibold uppercase tracking-wider"
+                style={{ color: 'var(--color-primary)' }}
+              >
+                Next-Gen Technology
+              </span>
+            </div>
+
+            {/* Main Heading */}
+            <div>
+              <h1 
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-4 sm:mb-6"
+                style={{ 
+                  color: 'var(--color-primary)',
+                  fontFamily: 'var(--font-heading)',
                 }}
               >
-                Innovation
-              </span>
-            </h2>
+                Pioneering
+                <br />
+                <span className="relative inline-block">
+                  <span 
+                    className="relative z-10"
+                    style={{
+                      background: 'linear-gradient(135deg, var(--color-accent), var(--color-highlight))',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    {rotatingWords[currentWord]}
+                  </span>
+                  {/* Animated underline */}
+                  <div 
+                    className="absolute bottom-0 left-0 h-1 sm:h-1.5 rounded-full"
+                    style={{
+                      background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight))',
+                      width: '100%',
+                      animation: 'slideIn 0.5s ease-out',
+                    }}
+                  />
+                </span>
+              </h1>
 
-            {/* Typewriter text effect */}
-            <div 
-              className="text-lg md:text-xl leading-relaxed mb-12 font-light"
-              style={{ color: '#5C5555' }}
-            >
-              <p>
-                {introText.slice(0, currentChar)}
-                <span 
-                  className="inline-block ml-1"
-                  style={{ 
-                    backgroundColor: '#FF7315',
-                    width: '2px',
-                    height: '24px',
-                    animation: 'pulse 1s ease-in-out infinite',
-                  }}
-                />
+
+              {/* Description */}
+              <p 
+                className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl"
+                style={{ color: 'var(--color-gray-600)' }}
+              >
+                Combining cutting-edge technology with creative innovation to deliver 
+                <span style={{ color: 'var(--color-accent)', fontWeight: 600 }}> next-generation brand-tech solutions</span> that drive your business forward.
               </p>
             </div>
 
-            {/* CTA Button */}
-            <button 
-              className="group px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-500 hover:scale-105 hover:-translate-y-1"
-              style={{
-                background: `linear-gradient(135deg, #FF7315, #F7922A)`,
-                color: '#ffffff',
-                boxShadow: '0 4px 12px rgba(10, 9, 3, 0.08)',
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.boxShadow = `
-                  0 15px 35px rgba(255, 115, 21, 0.4),
-                  0 0 25px rgba(255, 115, 21, 0.3)
-                `;
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.boxShadow = '0 4px 12px rgba(10, 9, 3, 0.08)';
-              }}
-            >
-              <span className="flex items-center gap-3">
-                Discover Our Approach
-                <svg 
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 py-4 sm:py-6">
+              {[
+                { icon: Zap, text: "Lightning Fast Performance" },
+                { icon: Code, text: "Cutting-Edge Technology" },
+                { icon: CheckCircle, text: "Proven Track Record" },
+                { icon: Sparkles, text: "Innovative Solutions" },
+              ].map((feature, index) => (
+                <div 
+                  key={index}
+                  className="flex items-center gap-3 p-3 sm:p-4 rounded-xl transition-all duration-300 hover:scale-105"
+                  style={{
+                    backgroundColor: 'var(--color-background)',
+                    border: '1px solid var(--color-gray-200)',
+                  }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
-            </button>
-          </div>
-        </div>
+                  <div 
+                    className="p-2 rounded-lg flex-shrink-0"
+                    style={{
+                      background: 'linear-gradient(135deg, var(--color-accent-light), var(--color-highlight-light))',
+                    }}
+                  >
+                    <feature.icon size={16} className="sm:w-5 sm:h-5" style={{ color: 'var(--color-white)' }} />
+                  </div>
+                  <span 
+                    className="text-xs sm:text-sm font-medium"
+                    style={{ color: 'var(--color-gray-700)' }}
+                  >
+                    {feature.text}
+                  </span>
+                </div>
+              ))}
+            </div>
 
-        {/* Visual Side */}
-        <div 
-          className="relative flex justify-center items-center"
-          style={{
-            transform: `translateX(${isInView ? 0 : 50}px)`,
-            opacity: isInView ? 1 : 0,
-            transition: 'all 1s ease-out 0.3s',
-          }}
-        >
-          {/* Central glowing orb */}
-          <div className="relative">
-            <div 
-              style={{
-                width: '320px',
-                height: '320px',
-                borderRadius: '50%',
-                position: 'relative',
-                overflow: 'hidden',
-                background: `conic-gradient(from 0deg, #FF7315, #F7922A, #FF7315)`,
-                transform: `rotate(${scrollProgress * 180}deg)`,
-                transition: 'transform 0.6s ease-out',
-              }}
-            >
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <button 
+                className="group px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                style={{
+                  background: 'linear-gradient(135deg, var(--color-accent), var(--color-highlight))',
+                  color: 'var(--color-white)',
+                  boxShadow: '0 10px 40px rgba(255, 115, 21, 0.3)',
+                }}
+              >
+                <span>Discover Our Approach</span>
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <button 
+                className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105 border-2"
+                style={{
+                  backgroundColor: 'transparent',
+                  borderColor: 'var(--color-primary)',
+                  color: 'var(--color-primary)',
+                }}
+              >
+                View Case Studies
+              </button>
+            </div>
+          </div>
+
+          {/* Right Visual */}
+          <div 
+            className="hidden lg:col-span-5 lg:block relative"
+            style={{
+              transform: `translateX(${isInView ? 0 : 50}px)`,
+              opacity: isInView ? 1 : 0,
+              transition: 'all 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s',
+            }}
+          >
+            <div className="relative aspect-square max-w-md mx-auto">
+              
+              {/* Central Circle */}
               <div 
-                className="absolute rounded-full flex items-center justify-center"
-                style={{ 
-                  backgroundColor: '#F4F4F4',
-                  top: '16px',
-                  left: '16px',
-                  right: '16px',
-                  bottom: '16px',
+                className="absolute inset-0"
+                style={{
+                  transform: `rotate(${scrollProgress * 180}deg)`,
+                  transition: 'transform 0.1s linear',
                 }}
               >
                 <div 
+                  className="w-full h-full rounded-full p-4 sm:p-6"
                   style={{
-                    width: '192px',
-                    height: '192px',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    background: `linear-gradient(135deg, #FF7315, #F7922A)`,
-                    opacity: 0.9,
+                    background: 'conic-gradient(from 0deg, var(--color-accent), var(--color-highlight), var(--color-accent))',
                   }}
                 >
-                  {/* Dartboard */}
-                  <div className="relative">
-                    <svg 
-                      width="128" 
-                      height="128"
-                      style={{
-                        transform: `rotate(${-scrollProgress * 45}deg)`,
-                        transition: 'transform 0.6s ease-out',
-                      }}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle cx="12" cy="12" r="10" stroke="#ffffff" strokeWidth="1.5" fill="none" opacity="0.6"/>
-                      <circle cx="12" cy="12" r="7" stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.4"/>
-                      <circle cx="12" cy="12" r="4" stroke="#ffffff" strokeWidth="1" fill="none" opacity="0.3"/>
-                      <circle cx="12" cy="12" r="1.5" fill="#FF7315" opacity="0.8"/>
-                      
-                      {/* Dartboard lines */}
-                      <line x1="12" y1="2" x2="12" y2="22" stroke="#ffffff" strokeWidth="0.5" opacity="0.3"/>
-                      <line x1="2" y1="12" x2="22" y2="12" stroke="#ffffff" strokeWidth="0.5" opacity="0.3"/>
-                      <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="#ffffff" strokeWidth="0.5" opacity="0.2"/>
-                      <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="#ffffff" strokeWidth="0.5" opacity="0.2"/>
-                    </svg>
-
-                    {/* Arrow - positioned absolutely so it doesn't rotate with dartboard */}
-                    <div
-                      className="absolute top-1/2 left-1/2"
-                      style={{
-                        transform: `
-                          translate(-50%, -50%)
-                          translateX(${30 - (scrollProgress * 40)}px)
-                          translateY(${-3 + (scrollProgress * 6)}px)
-                        `,
-                        opacity: scrollProgress > 0.3 ? 1 : 0,
-                        transition: 'opacity 0.3s ease-out',
-                        zIndex: 10,
-                      }}
-                    >
-                      <svg width="24" height="8" viewBox="0 0 24 8" fill="none">
-                        {/* Arrow tip */}
-                        <polygon 
-                          points="24,4 18,1 18,7" 
-                          fill="#FF7315"
-                          stroke="#FF7315"
-                          strokeWidth="0.5"
-                        />
-                        {/* Arrow body */}
-                        <rect 
-                          x="8" 
-                          y="3" 
-                          width="10" 
-                          height="2" 
-                          fill="#F7922A"
-                          stroke="#F7922A"
-                        />
-                        {/* Arrow flights */}
-                        <polygon 
-                          points="8,4 4,1 4,7" 
-                          fill="#FF7315"
-                          stroke="#FF7315"
-                          strokeWidth="0.5"
-                        />
-                      </svg>
-                    </div>
-
-                    {/* Hit effect when arrow reaches center */}
+                  <div 
+                    className="w-full h-full rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--color-white)' }}
+                  >
                     <div 
-                      className="absolute top-1/2 left-1/2"
+                      className="w-[85%] h-[85%] rounded-full relative overflow-hidden"
                       style={{
-                        transform: `translate(-50%, -50%) scale(${scrollProgress > 0.8 ? 1.5 : 0.5})`,
-                        opacity: scrollProgress > 0.8 ? 1 : 0,
-                        transition: 'all 0.3s ease-out',
-                        pointerEvents: 'none',
+                        background: 'linear-gradient(135deg, var(--color-accent), var(--color-highlight))',
                       }}
                     >
-                      <div 
-                        style={{
-                          width: '32px',
-                          height: '32px',
-                          borderRadius: '50%',
-                          backgroundColor: '#FF7315',
-                          boxShadow: `0 0 20px #FF7315`,
-                          animation: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
-                        }}
-                      />
+                      {/* Tech Grid Pattern */}
+                      <svg 
+                        className="absolute inset-0 w-full h-full opacity-20"
+                        viewBox="0 0 100 100"
+                      >
+                        <defs>
+                          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5"/>
+                          </pattern>
+                        </defs>
+                        <rect width="100" height="100" fill="url(#grid)" />
+                      </svg>
+
+                      {/* Central Icon */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div 
+                          className="relative"
+                          style={{
+                            transform: `scale(${0.8 + Math.sin(scrollProgress * Math.PI) * 0.2})`,
+                            transition: 'transform 0.3s ease-out',
+                          }}
+                        >
+                          <Zap 
+                            size={window.innerWidth < 640 ? 40 : window.innerWidth < 1024 ? 60 : 80} 
+                            style={{ color: 'var(--color-white)' }}
+                            strokeWidth={2}
+                          />
+                          {/* Pulsing ring */}
+                          <div 
+                            className="absolute inset-0 rounded-full animate-ping"
+                            style={{
+                              border: '2px solid var(--color-white)',
+                              opacity: 0.3,
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Orbiting elements */}
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute"
-                style={{
-                  transform: `
-                    rotate(${i * 90 + scrollProgress * 120}deg) 
-                    translateX(160px) 
-                    rotate(${-(i * 90 + scrollProgress * 120)}deg)
-                  `,
-                  transformOrigin: '50% 50%',
-                  left: '50%',
-                  top: '50%',
-                  marginLeft: '-8px',
-                  marginTop: '-8px',
-                  zIndex: 5,
-                }}
-              >
-                <div 
+              {/* Orbiting Elements */}
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute left-1/2 top-1/2"
                   style={{
-                    width: '16px',
-                    height: '16px',
-                    borderRadius: '50%',
-                    backgroundColor: i % 2 === 0 ? '#FF7315' : '#F7922A',
-                    boxShadow: `0 0 15px ${i % 2 === 0 ? '#FF7315' : '#F7922A'}`,
-                    animation: 'pulse 2s ease-in-out infinite',
+                    transform: `
+                      translate(-50%, -50%)
+                      rotate(${i * 60 + scrollProgress * 120}deg) 
+                      translateX(${window.innerWidth < 640 ? 110 : window.innerWidth < 1024 ? 140 : 170}px)
+                    `,
+                    transformOrigin: '50% 50%',
                   }}
-                />
-              </div>
-            ))}
+                >
+                  <div 
+                    className="w-3 h-3 sm:w-4 sm:h-4 rounded-full"
+                    style={{
+                      backgroundColor: i % 2 === 0 ? 'var(--color-accent)' : 'var(--color-highlight)',
+                      boxShadow: `0 0 20px ${i % 2 === 0 ? 'var(--color-accent)' : 'var(--color-highlight)'}`,
+                      transform: `rotate(${-(i * 60 + scrollProgress * 120)}deg)`,
+                    }}
+                  />
+                </div>
+              ))}
 
-            {/* Outer glow effect */}
-            <div 
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: `radial-gradient(circle, #FF7315, transparent 70%)`,
-                filter: 'blur(30px)',
-                transform: 'scale(1.5)',
-                opacity: 0.3,
-                animation: 'pulse 2s ease-in-out infinite'
-              }}
-            />
+              {/* Floating Cards */}
+              {[
+                { top: '10%', left: '-5%', delay: 0 },
+                { top: '70%', right: '-5%', delay: 0.2 },
+                { top: '40%', left: '-10%', delay: 0.4 },
+              ].map((pos, i) => (
+                <div
+                  key={i}
+                  className="absolute hidden lg:block"
+                  style={{
+                    ...pos,
+                    transform: `translateY(${Math.sin(scrollProgress * Math.PI * 2 + i) * 10}px)`,
+                    transition: 'transform 0.3s ease-out',
+                    animation: `float ${4 + i}s ease-in-out infinite`,
+                    animationDelay: `${pos.delay}s`,
+                  }}
+                >
+                  <div 
+                    className="p-4 rounded-2xl backdrop-blur-md border shadow-lg"
+                    style={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                      borderColor: 'var(--color-gray-200)',
+                    }}
+                  >
+                    <div 
+                      className="text-2xl font-black"
+                      style={{ color: 'var(--color-accent)' }}
+                    >
+                      {['AI', 'IoT', 'Cloud'][i]}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Glow Effect */}
+              <div 
+                className="absolute inset-0 rounded-full opacity-30 animate-pulse"
+                style={{
+                  background: 'radial-gradient(circle, var(--color-accent), transparent 70%)',
+                  filter: 'blur(40px)',
+                  transform: 'scale(1.2)',
+                }}
+              />
+            </div>
           </div>
+
         </div>
       </div>
+
+      <style>{`
+        @keyframes slideIn {
+          from {
+            width: 0%;
+          }
+          to {
+            width: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 };
