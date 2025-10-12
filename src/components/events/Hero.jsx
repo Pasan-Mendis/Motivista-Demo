@@ -46,21 +46,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   });
 
-  // Mouse tracking for parallax effects
-  // useEffect(() => {
-  //   const handleMouseMove = (e) => {
-  //     if (heroRef.current) {
-  //       const rect = heroRef.current.getBoundingClientRect();
-  //       const x = ((e.clientX - rect.left) / rect.width - 0.5) * 100;
-  //       const y = ((e.clientY - rect.top) / rect.height - 0.5) * 100;
-  //       setMousePosition({ x, y });
-  //     }
-  //   };
-    
-  //   window.addEventListener('mousemove', handleMouseMove);
-  //   return () => window.removeEventListener('mousemove', handleMouseMove);
-  // }, []);
-
   // Scroll tracking for parallax
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -175,7 +160,7 @@ const Hero = () => {
     <section 
       ref={heroRef}
       className="relative w-full h-screen overflow-hidden"
-      style={{ backgroundColor: 'var(--color-primary)' }}
+      style={{ backgroundColor: 'var(--color-primary)', minHeight: '100vh' }}
     >
       {/* Enhanced animated particle background */}
       <canvas 
@@ -222,17 +207,17 @@ const Hero = () => {
         />
       </div>
 
-      {/* Content Grid Layout */}
+      {/* Content Grid Layout - RESPONSIVE */}
       <div className="relative z-20 h-full flex items-center">
-        <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
             
-            {/* Left Column - Main Content */}
-            <div className="space-y-8">
+            {/* Left Column - Main Content - RESPONSIVE */}
+            <div className="space-y-6 sm:space-y-7 lg:space-y-8">
               
-              {/* Premium Badge with Enhanced Styling */}
+              {/* Premium Badge with Enhanced Styling - RESPONSIVE */}
               <div 
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 backdrop-blur-xl transition-all duration-700 hover:scale-105"
+                className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full border-2 backdrop-blur-xl transition-all duration-700 hover:scale-105"
                 style={{
                   borderColor: 'var(--color-accent)',
                   backgroundColor: 'rgba(255, 115, 21, 0.15)',
@@ -242,9 +227,9 @@ const Hero = () => {
               >
                 <div className="relative">
                   <Sparkles 
-                    size={18} 
+                    size={16}
+                    className="sm:w-[18px] sm:h-[18px] animate-pulse"
                     style={{ color: 'var(--color-accent)' }}
-                    className="animate-pulse"
                   />
                   <div 
                     className="absolute inset-0 animate-ping"
@@ -256,22 +241,22 @@ const Hero = () => {
                   />
                 </div>
                 <span 
-                  className="text-sm font-bold tracking-widest uppercase"
+                  className="text-xs sm:text-sm font-bold tracking-widest uppercase"
                   style={{ color: 'var(--color-white)' }}
                 >
                   {currentSlideData.subtitle}
                 </span>
               </div>
 
-              {/* Redesigned Title with Better Typography */}
+              {/* Redesigned Title with Better Typography - RESPONSIVE */}
               <div 
-                className="space-y-4 transition-all duration-1000"
+                className="space-y-3 sm:space-y-4 transition-all duration-1000"
                 style={{
                   transform: `translateY(${-scrollY * 0.2}px)`,
                 }}
               >
                 <h1 
-                  className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-[0.95] sm:leading-[0.9] tracking-tight"
                   style={{
                     color: 'var(--color-white)',
                     fontFamily: 'var(--font-heading)',
@@ -299,9 +284,9 @@ const Hero = () => {
                   ))}
                 </h1>
                 
-                {/* Accent line */}
+                {/* Accent line - RESPONSIVE */}
                 <div 
-                  className="h-1 w-24 rounded-full"
+                  className="h-0.5 sm:h-1 w-16 sm:w-20 lg:w-24 rounded-full"
                   style={{
                     background: `linear-gradient(90deg, var(--color-accent), var(--color-highlight))`,
                     animation: 'slideInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.8s both',
@@ -309,9 +294,9 @@ const Hero = () => {
                 />
               </div>
 
-              {/* Enhanced Description */}
+              {/* Enhanced Description - RESPONSIVE */}
               <p 
-                className="text-lg md:text-xl lg:text-2xl max-w-2xl leading-relaxed font-light"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl leading-relaxed font-light"
                 style={{
                   color: 'var(--color-gray-100)',
                   transform: `translateY(${-scrollY * 0.1}px)`,
@@ -321,9 +306,9 @@ const Hero = () => {
                 {currentSlideData.description}
               </p>
 
-              {/* Redesigned Action Buttons */}
+              {/* Redesigned Action Buttons - RESPONSIVE */}
               <div 
-                className="flex flex-col sm:flex-row gap-4 transition-all duration-700"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-700"
                 style={{
                   transform: `translateY(${-scrollY * 0.1}px)`,
                   animation: 'slideInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) 1.2s both',
@@ -333,10 +318,11 @@ const Hero = () => {
                     className="
                         group 
                         relative 
-                        px-8 py-4 
-                        rounded-2xl 
+                        px-6 sm:px-8 
+                        py-3 sm:py-4 
+                        rounded-xl sm:rounded-2xl 
                         font-semibold 
-                        text-lg 
+                        text-base sm:text-lg 
                         transition-all 
                         duration-500 
                         overflow-hidden
@@ -344,13 +330,14 @@ const Hero = () => {
                         !text-[var(--color-white)]
                         hover:-translate-y-1 hover:scale-[1.02]
                         active:translate-y-0
+                        w-full sm:w-auto
                     "
                     >
-                    <div className="flex items-center gap-3 relative z-10">
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 relative z-10">
                         Plan Your Event
                         <ArrowRight
-                        size={20}
-                        className="transition-transform group-hover:translate-x-1 !text-[var(--color-white)]"
+                        size={18}
+                        className="sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 !text-[var(--color-white)]"
                         />
                     </div>
 
@@ -371,10 +358,11 @@ const Hero = () => {
                     onClick={() => setIsVideoPlaying(true)}
                     className="
                         group 
-                        px-8 py-4 
-                        rounded-2xl 
+                        px-6 sm:px-8 
+                        py-3 sm:py-4 
+                        rounded-xl sm:rounded-2xl 
                         font-semibold 
-                        text-lg 
+                        text-base sm:text-lg 
                         transition-all 
                         duration-500 
                         border-2 
@@ -388,12 +376,13 @@ const Hero = () => {
                         hover:!border-[var(--color-accent)]
                         hover:-translate-y-0.5
                         active:translate-y-0
+                        w-full sm:w-auto
                     "
                     >
-                    <div className="flex items-center gap-3 relative z-10">
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 relative z-10">
                         <Play
-                        size={20}
-                        className="transition-transform group-hover:scale-110 !text-[var(--color-white)]"
+                        size={18}
+                        className="sm:w-5 sm:h-5 transition-transform group-hover:scale-110 !text-[var(--color-white)]"
                         />
                         Watch Our Story
                     </div>
@@ -405,24 +394,24 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Enhanced Video Modal */}
+      {/* Enhanced Video Modal - RESPONSIVE */}
       {isVideoPlaying && (
         <div 
-          className="fixed inset-0 flex items-center justify-center z-50 p-4 transition-all duration-300"
+          className="fixed inset-0 flex items-center justify-center z-50 p-3 sm:p-4 transition-all duration-300"
           style={{ 
             backgroundColor: 'rgba(10, 9, 3, 0.95)',
             backdropFilter: 'blur(20px)',
           }}
           onClick={() => setIsVideoPlaying(false)}
         >
-          <div className="relative max-w-5xl w-full aspect-video rounded-2xl overflow-hidden"
+          <div className="relative max-w-5xl w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden"
             style={{
               boxShadow: '0 40px 120px rgba(0, 0, 0, 0.8)',
             }}
           >
             <button
               onClick={() => setIsVideoPlaying(false)}
-              className="absolute -top-16 right-0 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+              className="absolute -top-12 sm:-top-16 right-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 text-lg sm:text-xl"
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 color: 'var(--color-white)',

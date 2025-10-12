@@ -24,8 +24,10 @@ export default function Home() {
       <section id="team">
       <MeetTheTeam/>
       </section>
+      <section id="projects">
+        <RecentProjects/>
+      </section>
       
-      <RecentProjects/>
       <Testimonials/>
     </div>
   );

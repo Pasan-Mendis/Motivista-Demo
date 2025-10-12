@@ -21,7 +21,7 @@ export default function Expertise() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 overflow-hidden"
+      className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden"
       style={{
         background: `linear-gradient(135deg, var(--color-background) 0%, var(--color-gray-50) 50%, var(--color-background) 100%)`,
         position: 'relative'
@@ -30,34 +30,34 @@ export default function Expertise() {
       {/* Premium Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Geometric Pattern */}
-        <div className="absolute top-20 left-10 w-32 h-32 border-2 opacity-5 rotate-45" 
+        <div className="absolute top-12 sm:top-20 left-4 sm:left-10 w-16 sm:w-24 lg:w-32 h-16 sm:h-24 lg:h-32 border-2 opacity-5 rotate-45" 
              style={{ borderColor: 'var(--color-accent)' }}></div>
-        <div className="absolute top-1/2 right-20 w-24 h-24 border-2 opacity-5 -rotate-12" 
+        <div className="absolute top-1/2 right-8 sm:right-20 w-12 sm:w-16 lg:w-24 h-12 sm:h-16 lg:h-24 border-2 opacity-5 -rotate-12" 
              style={{ borderColor: 'var(--color-highlight)' }}></div>
-        <div className="absolute bottom-32 left-1/4 w-16 h-16 border-2 opacity-5 rotate-45" 
+        <div className="absolute bottom-16 sm:bottom-32 left-1/4 w-8 sm:w-12 lg:w-16 h-8 sm:h-12 lg:h-16 border-2 opacity-5 rotate-45" 
              style={{ borderColor: 'var(--color-accent)' }}></div>
         
         {/* Floating Particles */}
-        <div className="absolute top-1/3 left-1/3 w-2 h-2 rounded-full animate-float opacity-30" 
+        <div className="absolute top-1/3 left-1/3 w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full animate-float opacity-30" 
              style={{ backgroundColor: 'var(--color-accent)' }}></div>
-        <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 rounded-full animate-float-delay opacity-40" 
+        <div className="absolute top-1/4 right-1/4 w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full animate-float-delay opacity-40" 
              style={{ backgroundColor: 'var(--color-highlight)' }}></div>
         <div className="absolute bottom-1/3 right-1/3 w-1 h-1 rounded-full animate-pulse-warm opacity-50" 
              style={{ backgroundColor: 'var(--color-accent)' }}></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Enhanced Header */}
         <div
-          className={`text-center mb-24 transition-all duration-1200 ${
+          className={`text-center mb-12 sm:mb-16 lg:mb-24 transition-all duration-1200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
           {/* Premium Badge */}
-          <div className="mb-8 relative inline-block">
-            <div className="absolute inset-0 animate-glow rounded-2xl"></div>
+          <div className="mb-6 sm:mb-8 relative inline-block">
+            <div className="absolute inset-0 animate-glow rounded-xl sm:rounded-2xl"></div>
             <span
-              className="relative inline-flex items-center gap-4 px-10 py-5 rounded-2xl text-sm font-bold tracking-widest uppercase border-2 backdrop-blur-sm transition-all duration-500 hover:scale-105"
+              className="relative inline-flex items-center gap-2 sm:gap-3 lg:gap-4 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold tracking-widest uppercase border-2 backdrop-blur-sm transition-all duration-500 hover:scale-105"
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.95)",
                 borderColor: "var(--color-accent)",
@@ -65,21 +65,21 @@ export default function Expertise() {
                 boxShadow: "0 12px 40px rgba(255, 115, 21, 0.2)"
               }}
             >
-              <Sparkles size={18} className="animate-pulse" />
+              <Sparkles size={14} className="sm:w-[16px] sm:h-[16px] lg:w-[18px] lg:h-[18px] animate-pulse" />
               <span className="relative">
                 Our Expertise
                 <div className="absolute -bottom-1 left-0 w-full h-0.5 rounded-full"
                      style={{ background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight))' }}></div>
               </span>
-              <Star size={18} className="animate-pulse" />
+              <Star size={14} className="sm:w-[16px] sm:h-[16px] lg:w-[18px] lg:h-[18px] animate-pulse" />
             </span>
           </div>
 
           {/* Enhanced Title */}
           <h2
-            className="mb-6"
+            className="mb-4 sm:mb-6 px-4"
             style={{
-              fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              fontSize: "clamp(1.75rem, 5vw, 4rem)",
               color: "var(--color-primary)",
               fontFamily: "var(--font-heading)",
               fontWeight: "900",
@@ -102,8 +102,9 @@ export default function Expertise() {
           </h2>
 
           <p
+            className="px-4"
             style={{
-              fontSize: "1.25rem",
+              fontSize: "clamp(0.95rem, 2vw, 1.25rem)",
               color: "var(--color-neutral)",
               maxWidth: "52rem",
               margin: "0 auto",
@@ -117,18 +118,18 @@ export default function Expertise() {
           </p>
 
           {/* Decorative Line */}
-          <div className="mt-8 flex justify-center">
-            <div className="w-24 h-1 rounded-full" 
+          <div className="mt-6 sm:mt-8 flex justify-center">
+            <div className="w-16 sm:w-20 lg:w-24 h-1 rounded-full" 
                  style={{ background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight))' }}></div>
           </div>
         </div>
 
         {/* Enhanced Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {expertise.map((item, index) => (
             <div
               key={item.id}
-              className={`group relative rounded-3xl overflow-hidden transition-all duration-700 ${
+              className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               onMouseEnter={() => setHoveredCard(item.id)}
@@ -140,7 +141,7 @@ export default function Expertise() {
                   : "0 12px 32px rgba(10, 9, 3, 0.1)",
                 transform: hoveredCard === item.id ? "translateY(-12px)" : "translateY(0)",
                 transitionDelay: `${index * 100}ms`,
-                minHeight: "500px"
+                minHeight: "450px"
               }}
             >
               {/* Enhanced Background Image */}
@@ -172,13 +173,13 @@ export default function Expertise() {
               />
 
               {/* Premium Content Layout */}
-              <div className="relative z-10 p-8 flex flex-col justify-between h-full">
+              <div className="relative z-10 p-5 sm:p-6 lg:p-8 flex flex-col justify-between h-full">
                 {/* Header Section */}
                 <div>
                   {/* Category Badge */}
-                  <div className="mb-4">
+                  <div className="mb-3 sm:mb-4">
                     <span 
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider backdrop-blur-md transition-all duration-300"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-semibold uppercase tracking-wider backdrop-blur-md transition-all duration-300"
                       style={{
                         backgroundColor: hoveredCard === item.id 
                           ? "rgba(255, 115, 21, 0.9)" 
@@ -187,16 +188,16 @@ export default function Expertise() {
                         border: `1px solid ${hoveredCard === item.id ? 'var(--color-highlight)' : 'rgba(255, 255, 255, 0.3)'}`
                       }}
                     >
-                      <CheckCircle size={12} />
+                      <CheckCircle size={10} className="sm:w-3 sm:h-3" />
                       Premium Service
                     </span>
                   </div>
 
                   {/* Enhanced Title */}
                   <h3
-                    className="mb-4 transition-all duration-300"
+                    className="mb-3 sm:mb-4 transition-all duration-300"
                     style={{
-                      fontSize: "2rem",
+                      fontSize: "clamp(1.5rem, 4vw, 2rem)",
                       fontWeight: "800",
                       color: hoveredCard === item.id ? "var(--color-highlight)" : "white",
                       fontFamily: "var(--font-heading)",
@@ -209,9 +210,9 @@ export default function Expertise() {
 
                   {/* Enhanced Short Description */}
                   <p
-                    className="mb-6 transition-all duration-300"
+                    className="mb-4 sm:mb-6 transition-all duration-300"
                     style={{
-                      fontSize: "1.1rem",
+                      fontSize: "clamp(0.95rem, 2vw, 1.1rem)",
                       color: "rgba(255, 255, 255, 0.9)",
                       lineHeight: "1.6",
                       fontWeight: "300"
@@ -225,8 +226,8 @@ export default function Expertise() {
                 <div
                   className="mt-auto transition-all duration-500"
                   style={{
-                    padding: "2rem",
-                    borderRadius: "1.5rem",
+                    padding: "clamp(1rem, 3vw, 2rem)",
+                    borderRadius: "clamp(1rem, 2vw, 1.5rem)",
                     backdropFilter: "blur(20px)",
                     backgroundColor: hoveredCard === item.id
                       ? "rgba(255, 115, 21, 0.15)"
@@ -239,7 +240,7 @@ export default function Expertise() {
                 >
                   <p
                     style={{
-                      fontSize: "1rem",
+                      fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
                       lineHeight: "1.6",
                       color: "rgba(255, 255, 255, 0.95)",
                       margin: "0"
@@ -250,7 +251,7 @@ export default function Expertise() {
 
                   {/* Action Indicator */}
                   <div 
-                    className={`mt-4 flex items-center gap-2 text-sm font-medium transition-all duration-300 ${
+                    className={`mt-3 sm:mt-4 flex items-center gap-2 text-xs sm:text-sm font-medium transition-all duration-300 ${
                       hoveredCard === item.id ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
                     }`}
                     style={{
@@ -258,13 +259,13 @@ export default function Expertise() {
                     }}
                   >
                     <span>Explore Service</span>
-                    <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    <ArrowUpRight size={14} className="sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </div>
                 </div>
 
                 {/* Corner Accent */}
                 <div 
-                  className={`absolute top-4 right-4 w-12 h-12 rounded-full transition-all duration-500 ${
+                  className={`absolute top-3 sm:top-4 right-3 sm:right-4 w-10 sm:w-12 h-10 sm:h-12 rounded-full transition-all duration-500 ${
                     hoveredCard === item.id ? "opacity-100 scale-100" : "opacity-0 scale-75"
                   }`}
                   style={{
@@ -276,7 +277,7 @@ export default function Expertise() {
 
               {/* Hover Effect Border */}
               <div 
-                className={`absolute inset-0 rounded-3xl transition-all duration-500 pointer-events-none ${
+                className={`absolute inset-0 rounded-2xl sm:rounded-3xl transition-all duration-500 pointer-events-none ${
                   hoveredCard === item.id ? "opacity-100" : "opacity-0"
                 }`}
                 style={{
@@ -289,13 +290,12 @@ export default function Expertise() {
           ))}
         </div>
 
-        {/* Bottom Call to Action */}
         {/* Bottom CTA Section */}
         <div 
-          className={`mt-12 lg:mt-16 text-center transition-all duration-1000 delay-1200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          className={`mt-10 sm:mt-12 lg:mt-16 text-center transition-all duration-1000 delay-1200 px-4 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <div 
-            className="inline-flex flex-col sm:flex-row items-center gap-4 px-8 py-6 rounded-2xl backdrop-blur-sm border"
+            className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 px-6 sm:px-8 py-4 sm:py-6 rounded-xl sm:rounded-2xl backdrop-blur-sm border"
             style={{
               backgroundColor: 'var(--overlay-accent-light)',
               borderColor: 'var(--color-accent-light)',
@@ -303,13 +303,13 @@ export default function Expertise() {
           >
             <div className="text-center sm:text-left">
               <p 
-                className="text-lg font-semibold mb-1"
+                className="text-base sm:text-lg font-semibold mb-1"
                 style={{ color: 'var(--color-primary)' }}
               >
                 Ready to create your perfect event?
               </p>
               <p 
-                className="text-sm"
+                className="text-xs sm:text-sm"
                 style={{ color: 'var(--color-gray-600)' }}
               >
                 Let's bring your vision to life with our expertise
@@ -321,7 +321,7 @@ export default function Expertise() {
               rel="noopener noreferrer"
             >
               <button
-                className="px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg whitespace-nowrap"
                 style={{
                   background:
                     "linear-gradient(135deg, var(--color-accent), var(--color-highlight))",
@@ -331,7 +331,6 @@ export default function Expertise() {
                 Start Planning
               </button>
             </a>
-
           </div>
         </div>
       </div>
