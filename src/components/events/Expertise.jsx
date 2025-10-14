@@ -68,8 +68,7 @@ export default function Expertise() {
               <Sparkles size={14} className="sm:w-[16px] sm:h-[16px] lg:w-[18px] lg:h-[18px] animate-pulse" />
               <span className="relative">
                 Our Expertise
-                <div className="absolute -bottom-1 left-0 w-full h-0.5 rounded-full"
-                     style={{ background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight))' }}></div>
+                
               </span>
               <Star size={14} className="sm:w-[16px] sm:h-[16px] lg:w-[18px] lg:h-[18px] animate-pulse" />
             </span>

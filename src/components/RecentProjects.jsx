@@ -164,7 +164,7 @@ const RecentProjects = () => {
                       }}
                     >
                       {/* Image Container */}
-                      <div className="relative aspect-video overflow-hidden">
+                      <div className="relative aspect-video overflow-hidden rounded-3xl border-6 border-[var(--color-highlight)] hover:border-[var(--color-highlight)] transition-all duration-500">
                         {project.image ? (
                           <img
                             src={project.image}
@@ -190,45 +190,6 @@ const RecentProjects = () => {
                           }}
                         />
                       </div>
-
-                      {/* Project Type Badge */}
-                      <div
-                        className="absolute top-4 left-4 px-4 py-2 rounded-full backdrop-blur-md border flex items-center gap-2"
-                        style={{
-                          backgroundColor: "rgba(255, 255, 255, 0.9)",
-                          borderColor: typeConfig.color,
-                        }}
-                      >
-                        <TypeIcon size={16} style={{ color: typeConfig.color }} />
-                        <span
-                          className="text-xs font-bold uppercase tracking-wider"
-                          style={{ color: typeConfig.color }}
-                        >
-                          {typeConfig.label}
-                        </span>
-                      </div>
-
-                      {/* Number Badge */}
-                      <div
-                        className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center font-black text-2xl backdrop-blur-md"
-                        style={{
-                          backgroundColor: "rgba(255, 255, 255, 0.9)",
-                          color: typeConfig.color,
-                        }}
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-
-                      {/* Bottom Accent Line */}
-                      <div
-                        className="absolute bottom-0 left-0 right-0 h-1 transition-all duration-500"
-                        style={{
-                          background: `linear-gradient(90deg, ${typeConfig.color}, var(--color-highlight))`,
-                          transform:
-                            hoveredIndex === index ? "scaleX(1)" : "scaleX(0)",
-                          transformOrigin: "left",
-                        }}
-                      />
                     </div>
                   </div>
 
@@ -256,7 +217,7 @@ const RecentProjects = () => {
 
                     {/* Title */}
                     <h3
-                      className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight transition-all duration-300 hover:translate-x-2"
+                      className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight transition-all duration-300 hover:translate-x-2 text-center md:text-left"
                       style={{
                         color: "var(--color-primary)",
                         fontFamily: "var(--font-heading)",

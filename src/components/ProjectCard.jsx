@@ -10,7 +10,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <motion.div
-      className="!relative !rounded-3xl !overflow-hidden !cursor-pointer !transition-all !duration-700 hover:!scale-[1.03] hover:!shadow-2xl !bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-highlight-dark)] border border-[var(--color-accent)]/30 backdrop-blur-xl"
+      className="!relative !rounded-3xl !overflow-hidden !cursor-pointer !transition-all !duration-700 hover:!scale-[1.03] hover:!shadow-2xl !bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-highlight-dark)] !border border-[var(--color-accent)]/30 backdrop-blur-xl"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

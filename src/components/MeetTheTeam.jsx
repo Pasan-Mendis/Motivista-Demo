@@ -343,16 +343,7 @@ const MeetTheTeam = () => {
                       }}
                     />
 
-                    {/* Bottom Accent Line */}
-                    <div 
-                      className="!absolute !bottom-0 !left-0 !right-0 !h-1"
-                      style={{
-                        background: 'linear-gradient(90deg, var(--color-accent), var(--color-highlight), var(--color-accent))',
-                        transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
-                        transformOrigin: 'center',
-                        transition: `transform ${TRANSITION_DURATION}ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms`,
-                      }}
-                    />
+
 
                     {/* Side Glow Effects */}
                     {isActive && (

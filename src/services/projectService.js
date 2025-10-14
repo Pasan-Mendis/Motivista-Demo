@@ -1,7 +1,7 @@
 import projectsData from "../assets/data/projects.json";
-import project1 from "../assets/images/project1.jpg";
-import project2 from "../assets/images/project2.jpg";
-import project3 from "../assets/images/project3.jpg";
+import project1 from "../assets/images/homeprojects/Amite.png";
+import project2 from "../assets/images/homeprojects/Romeshta20.png";
+import project3 from "../assets/images/homeprojects/CareerGuidance.png";
 
 const images = {
   "project1.jpg": project1,
