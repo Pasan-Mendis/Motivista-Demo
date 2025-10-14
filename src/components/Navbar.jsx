@@ -123,8 +123,8 @@ function Navbar() {
                           onClick={handleNavClick}
                           className={`block px-4 py-3 rounded-lg transition-all duration-200 font-medium text-base ${
                             isActive
-                              ? "bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-highlight)] text-white shadow-lg shadow-[var(--color-accent)]/30"
-                              : "text-gray-400 hover:text-white hover:bg-white/5"
+                              ? "bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-highlight)] !text-white shadow-lg shadow-[var(--color-accent)]/30"
+                              : "!text-white/60 hover:!text-[var(--color-accent)] hover:bg-white/5"
                           }`}
                         >
                           {link.name}
@@ -147,7 +147,7 @@ function Navbar() {
                       Quick Links
                     </p>
                     <a
-                      href="mailto:info@motivista.com"
+                      href="mailto:info.motivista@gmail.com"
                       className="block px-4 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
                     >
                       📧 Email Us

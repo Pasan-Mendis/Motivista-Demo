@@ -53,7 +53,7 @@ export default function SecondaryNavbar({ links: customLinks = [] }) {
       <nav
         className="transition-all duration-300 border-t border-[var(--color-gray-800)] shadow-sm"
         style={{
-          background: "rgba(10, 10, 15, 0.9)",
+          background: "rgba(243, 107, 17, 0.95)",
           backdropFilter: "blur(8px)",
         }}
       >
@@ -73,8 +73,8 @@ export default function SecondaryNavbar({ links: customLinks = [] }) {
                   <span
                     className={`relative z-10 transition-colors duration-300 ${
                       isActive
-                        ? "text-[var(--color-highlight)] font-semibold"
-                        : "text-white group-hover:text-[var(--color-highlight)]"
+                        ? "text-white font-semibold"
+                        : "text-black group-hover:text-black"
                     }`}
                   >
                     {link.label}
@@ -95,7 +95,7 @@ export default function SecondaryNavbar({ links: customLinks = [] }) {
         </div>
       </nav>
 
-      <style jsx>{`
+      <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }

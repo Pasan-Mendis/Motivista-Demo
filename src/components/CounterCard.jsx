@@ -271,63 +271,63 @@ export default function IntroAndCounters() {
 
           {/* Counter Cards - Smaller Size */}
           <div 
-            ref={ref}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
-          >
-            {counters.map((counter, index) => (
-              <div
-                key={counter.id}
-                className="group relative"
-                style={{
-                  animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both`,
-                }}
-              >
-                <div 
-                  className="relative p-6 md:p-8 rounded-2xl border-2 transition-all duration-500 hover:-translate-y-4"
-                  style={{
-                    backgroundColor: 'rgba(255, 255, 55, 0.05)',
-                    borderColor: 'var(--color-accent)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--color-accent)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1) ';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--color-accent)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05) ';
-                  }}
-                >
-                  {/* Icon */}
-                  <div 
-                    className="text-3xl md:text-4xl mb-4 opacity-80 group-hover:scale-110 transition-transform duration-300"
-                  >
-                    {counter.icon}
-                  </div>
+  ref={ref}
+  className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+>
+  {counters.map((counter, index) => (
+    <div
+      key={counter.id}
+      className="group relative"
+      style={{
+        animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both`,
+      }}
+    >
+      <div 
+        className="relative p-6 md:p-8 rounded-2xl border-2 transition-all duration-500 hover:-translate-y-2 h-[180px] md:h-[220px] lg:h-[240px] flex flex-col justify-center"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          borderColor: 'var(--color-accent)',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = 'var(--color-accent)';
+          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1) ';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = 'var(--color-accent)';
+          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05) ';
+        }}
+      >
+        {/* Icon */}
+        <div 
+          className="text-3xl md:text-4xl mb-4 opacity-80 group-hover:scale-110 transition-transform duration-300"
+        >
+          {counter.icon}
+        </div>
 
-                  {/* Number */}
-                  <h3 
-                    className="text-3xl md:text-4xl lg:text-5xl font-black mb-3"
-                    style={{ 
-                      color: 'var(--color-accent) !important',
-                      fontFamily: 'var(--font-heading) !important',
-                    }}
-                  >
-                    {inView ? <CountUp end={counter.value} duration={2} /> : 0}
-                    <span style={{ color: 'var(--color-highlight) !important' }}>+</span>
-                  </h3>
+        {/* Number */}
+        <h3 
+          className="text-3xl md:text-4xl lg:text-5xl font-black mb-3"
+          style={{ 
+            color: 'var(--color-accent) !important',
+            fontFamily: 'var(--font-heading) !important',
+          }}
+        >
+          {inView ? <CountUp end={counter.value} duration={2} /> : 0}
+          <span style={{ color: 'var(--color-highlight) !important' }}>+</span>
+        </h3>
 
-                  {/* Label */}
-                  <p 
-                    className="text-xs md:text-sm font-semibold uppercase tracking-wider"
-                    style={{ color: 'var(--color-gray-300) !important' }}
-                  >
-                    {counter.label}
-                  </p>
-                  
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Label */}
+        <p 
+          className="text-xs md:text-sm font-semibold uppercase tracking-wider"
+          style={{ color: 'var(--color-gray-300) !important' }}
+        >
+          {counter.label}
+        </p>
+        
+      </div>
+    </div>
+  ))}
+</div>
 
           {/* Bottom CTA */}
           <div className="text-center mt-10 md:mt-14">
