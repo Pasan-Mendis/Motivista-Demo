@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronRight, ExternalLink, Calendar, Users, Code, Award } from "lucide-react";
+import { ChevronRight, ExternalLink, Calendar, Users, Code, Award,Sparkles } from "lucide-react";
 import projects from "../../services/apex/projectData";
 
 const Projects = () => {
@@ -382,24 +382,23 @@ const Projects = () => {
             </button>
           ) : (
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6">
-              <button 
-                className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-3.5 lg:py-4 rounded-lg font-semibold text-base transition-all duration-300"
-                style={{
-                  backgroundColor: 'var(--color-accent)',
-                  color: 'var(--color-white)',
-                  border: 'none',
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = 'var(--color-accent-dark)';
-                  e.target.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'var(--color-accent)';
-                  e.target.style.transform = 'translateY(0)';
-                }}
+              <div className="col-span-full text-center py-12 sm:py-16 lg:py-20">
+              <div 
+                className="inline-flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 rounded-full mb-4 sm:mb-6"
+                style={{ backgroundColor: 'var(--overlay-accent-light)' }}
               >
-                Start Your Project
-              </button>
+                <Sparkles size={24} className="sm:w-8 sm:h-8" style={{ color: 'var(--color-accent)' }} />
+              </div>
+              <h3 
+                className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3"
+                style={{ color: 'var(--color-primary)' }}
+              >
+                No Projects Found
+              </h3>
+              <p className="text-sm sm:text-base" style={{ color: 'var(--color-neutral)' }}>
+                No projects available in this category yet.
+              </p>
+            </div>
               
               {showAllProjects && (
                 <button 

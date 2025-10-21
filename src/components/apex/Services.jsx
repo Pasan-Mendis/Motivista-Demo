@@ -33,7 +33,7 @@ export default function Services() {
           and precision.
         </motion.p>
       </div>
-
+      
       {/* grid */}
       <div className="relative max-w-7xl mx-auto grid gap-8 sm:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-6">
         {services.map((service, index) => {
@@ -71,6 +71,49 @@ export default function Services() {
           );
         })}
       </div>
+
+      <div 
+          className={`mt-10 sm:mt-12 lg:mt-16 text-center transition-all duration-1000 delay-1200 px-4 ${ 'opacity-100 translate-y-0'}`}
+        >
+          <div 
+            className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 px-6 sm:px-8 py-4 sm:py-6 rounded-xl sm:rounded-2xl backdrop-blur-sm border"
+            style={{
+              backgroundColor: 'var(--overlay-accent-light)',
+              borderColor: 'var(--color-accent-light)',
+            }}
+          >
+            <div className="text-center sm:text-left">
+              <p 
+                className="text-base sm:text-lg font-semibold mb-1"
+                style={{ color: 'var(--color-primary)' }}
+              >
+                Ready to make your Idea a Reality?
+              </p>
+              <p 
+                className="text-xs sm:text-sm"
+                style={{ color: 'var(--color-gray-600)' }}
+              >
+                Let's bring your vision to life with our expertise
+              </p>
+            </div>
+            <a
+              href="https://forms.gle/2y5WsqQYGifmQKws7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg whitespace-nowrap"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--color-accent), var(--color-highlight))",
+                  color: "var(--color-white)",
+                }}
+              >
+                Start Planning
+              </button>
+            </a>
+          </div>
+        </div>
     </section>
   );
 }
