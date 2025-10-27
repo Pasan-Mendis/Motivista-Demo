@@ -3,13 +3,15 @@
     "id": 1,
     "title": "Project One",
     "description": "This is the first project.",
-    "image": "/projects/Apex/Merchandise/Ballys/BallysLoyaltyCards/Card1.jpeg"
+    "image": "/Motivista-Demo/projects/Apex/Merchandise/Ballys/BallysLoyaltyCards/Card1.jpeg",
+    "category": "merchandise",
+    "type": "apex"
   },
   {
     "id": 2,
     "title": "Project Two",
     "description": "This is the second project.",
-    "image": "/projects/Apex/Merchandise/Ballys/BallysLoyaltyCards/Card1.jpeg"
+    "image": "/Motivista-Demo/projects/Apex/Merchandise/Ballys/BallysLoyaltyCards/Card1.jpeg"
   },
   {
     "id": 3,

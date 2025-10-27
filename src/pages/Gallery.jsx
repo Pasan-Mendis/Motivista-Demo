@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, Sparkles, Award, GraduationCap, Calendar } from "lucide-react";
-import galleries from "../services/galleryData";
+import { getProjectsByMainCategory } from "../services/projectData";
+
 
 // Category configuration
 const categories = [
@@ -72,9 +73,24 @@ export default function Gallery() {
   };
 
   // Filter galleries by category
-  const filteredGalleries = selectedCategory === 'all' 
-    ? galleries 
-    : galleries.filter(gallery => gallery.category === selectedCategory);
+  // Load and filter project data dynamically
+  const [filteredGalleries, setFilteredGalleries] = useState([]);
+
+  useEffect(() => {
+    if (selectedCategory === "all") {
+      const all = [
+        ...getProjectsByMainCategory("Apex"),
+        ...getProjectsByMainCategory("Academy"),
+        ...getProjectsByMainCategory("Events"),
+      ];
+      setFilteredGalleries(all);
+    } else {
+      const data = getProjectsByMainCategory(
+        selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
+      );
+      setFilteredGalleries(data);
+    }
+  }, [selectedCategory]);
 
   return (
     <section

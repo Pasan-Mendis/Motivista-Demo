@@ -20,8 +20,12 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="Motivista-Demo" element={<Home />}/>
           <Route path="contact" element={<Contact />} />
+          <Route path="Motivista-Demo/contact" element={<Contact />} />
+          <Route path="Motivista-Demo/apex" element={<Apex />} />
           <Route path="apex" element={<Apex />} />
           <Route path="event" element={<Event />} />
+          <Route path="Motivista-Demo/event" element={<Event />} />
+          <Route path="Motivista-Demo/gallery" element={<Gallery />} />
           {/* <Route path="academy" element={<Academy />} /> */}
           <Route path="gallery" element={<Gallery/>}/>
           <Route path="*" element={<NotFound />} />

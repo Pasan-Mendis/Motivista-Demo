@@ -1,0 +1,512 @@
+[
+  {
+    "id": 1,
+    "title": "Amite Travels Website Development",
+    "description": "We built a complete website for Amite Travels — a Sri Lankan travel agency that celebrates adventure and friendship. Using WordPress, our team crafted a sleek, responsive platform that reflects the brand’s identity and travel spirit.",
+    "images": [
+        "/Motivista-Demo/projects/Apex/Websites/AmiteTravels/Amite.png",
+        "/Motivista-Demo/projects/Apex/Websites/AmiteTravels/AmiteTravels1.jpg",
+        "/Motivista-Demo/projects/Apex/Websites/AmiteTravels/AmiteTravels2.jpg", 
+        "/Motivista-Demo/projects/Apex/Websites/AmiteTravels/AmiteTravels3.jpg", 
+        "/Motivista-Demo/projects/Apex/Websites/AmiteTravels/AmiteTravels4.jpg"
+    ],
+    "demo": "https://amitetravels.com/",
+    "github": "https://github.com/motivista/amite-travels",
+    "technologies": ["WordPress", "HTML", "CSS"]
+  },
+  {
+    "id": 2,
+    "title": "රොමේෂ්ට 20යි Live In Concert",
+    "description": "Motivista Events organized 'රොමේෂ්ට 20යි' — a grand concert celebrating 20 years of Romesh Sugathapala’s music journey. From stage design to lighting, every detail captured the soul of Sri Lankan music.",
+    "images": [
+        "/Motivista-Demo/projects/Events/Non Cooperate Events/රොමේෂ්ට 20යි/Romeshta20.png", 
+        "/Motivista-Demo/projects/Events/Non Cooperate Events/රොමේෂ්ට 20යි/485166229_671537292073735_8783867149786323507_n.jpg", 
+        "/Motivista-Demo/projects/Events/Non Cooperate Events/රොමේෂ්ට 20යි/485287104_671537405407057_7541502689878244292_n.jpg", 
+        "/Motivista-Demo/projects/Events/Non Cooperate Events/රොමේෂ්ට 20යි/485347643_671536792073785_1943784483234913666_n.jpg", 
+        "/Motivista-Demo/projects/Events/Non Cooperate Events/රොමේෂ්ට 20යි/485415087_671536732073791_213520283802780868_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/14TD21henmD/",
+    "github": "",
+    "technologies": ["Event Management", "Stage Design", "Lighting"]
+  },
+  {
+    "id": 3,
+    "title": "Career Guidance Session at Sirimavo",
+    "description": "Motivista Academy partnered with NCHS to conduct a career guidance session empowering A/L students to make confident decisions about their future paths.",
+    "images": [
+      "/Motivista-Demo/projects/Academy/Sirimavo Bandaranayaka College () A career guidance training session/CareerGuidance.png", 
+      "/Motivista-Demo/projects/Academy/Sirimavo Bandaranayaka College () A career guidance training session/528747377_765053309251461_7889076106705435476_n.jpg", 
+      "/Motivista-Demo/projects/Academy/Sirimavo Bandaranayaka College () A career guidance training session/527673966_765053172584808_5149403055804654040_n.jpg", 
+      "/Motivista-Demo/projects/Academy/Sirimavo Bandaranayaka College () A career guidance training session/528091336_765053389251453_4546908428932803310_n.jpg", 
+      "/Motivista-Demo/projects/Academy/Sirimavo Bandaranayaka College () A career guidance training session/528543662_765053359251456_9207460085989073436_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1Me8eVhNYo/",
+    "github": "https://github.com/motivista/career-session",
+    "technologies": ["Planning", "Coordination", "Public Speaking"]
+  },
+  {
+    "id": 4,
+    "title": "Ballys Loyalty Cards",
+    "description": "Motivista Academy partnered with NCHS to conduct a career guidance session empowering A/L students to make confident decisions about their future paths.",
+    "images": [
+      "/Motivista-Demo/projects/Apex/Merchandise/Ballys/BallysLoyaltyCards/Card1.jpeg", 
+      "/Motivista-Demo/projects/Apex/Merchandise/Ballys/BallysLoyaltyCards/Card2.jpeg"
+    ],
+    "demo": "",
+    "github": "",
+    "technologies": ""
+  },
+  {
+    "id": 5,
+    "title": "Corporate Hampers - Leo District 306 B1",
+    "description": "Our exclusive Motivista corporate hampers for the Leo District 306 B1 featured a premium collection of branded essentials including: 🖊️ Pens | 📓 Notebooks | 🔑 Keytags | 🧴 Bottles | ☕ Mugs — all beautifully packed in custom corporate hamper boxes. From functionality to finesse, every item was selected to reflect the spirit of leadership, service, and recognition.",
+    "images": [
+      "/Motivista-Demo/projects/Apex/Merchandise/Corporate Hampers  Leo District 306 B1/Hamper1.jpg",
+      "/Motivista-Demo/projects/Apex/Merchandise/Corporate Hampers  Leo District 306 B1/Hamper2.jpg",
+      "/Motivista-Demo/projects/Apex/Merchandise/Corporate Hampers  Leo District 306 B1/Hamper3.jpg",
+      "/Motivista-Demo/projects/Apex/Merchandise/Corporate Hampers  Leo District 306 B1/Hamper4.jpg",
+      "/Motivista-Demo/projects/Apex/Merchandise/Corporate Hampers  Leo District 306 B1/Hamper5.jpg"
+    ],
+    "demo": "https://web.facebook.com/permalink.php?story_fbid=pfbid02mwx7ZbZhysiZJNnf7RkgwLKp4t2vk9s9MTnDs9YBX5SkzRDV1SBzZFZwEBkTRg3Ql&id=100076524115582",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 6,
+    "title": "Aeye Innovations",
+    "description": "",
+    "images": [
+      "/Motivista-Demo/projects/Apex/Social Media/AeyeInnovations/AeyeInnovation1.jpg",
+      "/Motivista-Demo/projects/Apex/Social Media/AeyeInnovations/AeyeInnovation2.jpg",
+      "/Motivista-Demo/projects/Apex/Social Media/AeyeInnovations/AeyeInnovation3.jpg",
+      "/Motivista-Demo/projects/Apex/Social Media/AeyeInnovations/AeyeInnovation4.jpg"
+    ],
+    "demo": "https://web.facebook.com/AeyeInnovations",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 7,
+    "title": "1st Cabinet Installation Ceremony - Lions District 306 D7 (Video Wall)",
+    "description": "Motivista Events & Productions was truly honored to be the official event management partner for the Annual Installation Ceremony of Lions District 306 D7 held on the 9th of August 2025 at the elegant Green Court Hotel, Homagama.From concept to execution, our team was delighted to handle every detail of this prestigious occasion creating a seamless and memorable experience for all Lions who gathered to celebrate leadership, service, and fellowship. A heartfelt thank you to the District Governor and the organizing committee for placing their trust in us. It was a privilege to bring this grand ceremony to life…",
+    "images": [
+      "/Motivista-Demo/projects/Apex/Video Productions/1st Cabinet Installation Ceremony - Lions District 306 D7/VideoWall1.jpg",
+      "/Motivista-Demo/projects/Apex/Video Productions/1st Cabinet Installation Ceremony - Lions District 306 D7/VideoWall2.jpg",
+      "/Motivista-Demo/projects/Apex/Video Productions/1st Cabinet Installation Ceremony - Lions District 306 D7/VideoWall3.jpg",
+      "/Motivista-Demo/projects/Apex/Video Productions/1st Cabinet Installation Ceremony - Lions District 306 D7/VideoWall4.jpg"
+    ],
+    "demo": "https://web.facebook.com/permalink.php?story_fbid=pfbid02CGBVkdiXcL5SePMo7XDuHaz4zGxhyR6eqBk1hapNR8omAd7TJctQvbzhiUfZ2Rugl&id=100076524115582",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 8,
+    "title": "Motivista අපේ අවුරුදු",
+    "description": "නවමු ඇරඹුමකට Motivista අපේ අවුරුදු හිතවත්කම් අලුත් කරමින් රත් පැහැයෙන් වියන් බැඳුණ බක්මහ සිනහා වපුරන, තුරුමතින් මිහිමතට හෙළ අවුරුදු කුමරි වඩින සූර්‍ය මංගල්‍යය අරුත් ගන්වමින් මෙසේ හැඩ වුණ වගයි....",
+    "images": [
+      "/Motivista-Demo/projects/Apex/Video Productions/Motivista අපේ අවුරුදු/Motivista අපේ අවුරුදු1.png"
+    ],
+    "demo": "https://web.facebook.com/100076524115582/videos/3966390820307264/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 9,
+    "title": "Akbar Brothers welcoming ceremony for Barista Sri Lanka & Colombo",
+    "description": "A Warm Welcome to Barista Sri Lanka & Colombo Coffee Company by Akbar Brothers! We at Motivista Events had the pleasure of setting up the welcome ceremony as Barista Sri Lanka and Colombo Coffee Company officially joined the Akbar Brothers Family! This milestone marks the union of Sri Lanka’s finest tea and coffee brands, promising an exciting future of brewing excellence together..",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/Akbar Brothers welcoming ceremony for Barista Sri Lanka & Colombo/487327655_682765910950873_8019023744552723251_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Akbar Brothers welcoming ceremony for Barista Sri Lanka & Colombo/487508654_682767400950724_4139320590315866616_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Akbar Brothers welcoming ceremony for Barista Sri Lanka & Colombo/487823684_682766690950795_5431265259084598887_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Akbar Brothers welcoming ceremony for Barista Sri Lanka & Colombo/487827095_682764984284299_4033588802551524573_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Akbar Brothers welcoming ceremony for Barista Sri Lanka & Colombo/488532851_682767270950737_3877140435069318089_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1A9Lmk7wTD/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 10,
+    "title": "Battle of C’s",
+    "description": "We at Motivista Events & Productions are thrilled to be the Strategic Sponsor of the Battle of C’s! 🏏 This exciting cricket tournament brings together the vibrant Leos of Districts 306 C1 & 306 C2, celebrating camaraderie, competition, and the true spirit of sportsmanship. Here’s to empowering young talent and fostering stronger bonds through the love of cricket! 🏆",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/Battle of C’s/485310927_672143335346464_331797061211263454_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Battle of C’s/485397899_672143745346423_2877142342483802379_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Battle of C’s/485697962_672143442013120_8353266319394261327_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Battle of C’s/485708566_672143278679803_9001381421527360305_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Battle of C’s/485782010_672143352013129_3287333278496281392_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1GsF4csk7n/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 11,
+    "title": "Dubai JPG Group - Cricket Tournament 2024",
+    "description": "We are thrilled to be a part of the organizing and coordinating the highly anticipated sports extravaganza - the annual Sports Day of the JPG Group, Dubai, UAE…",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/Dubai JPG Group - Cricket Tournament 2024/484858615_671886538705477_2193028956604134062_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Dubai JPG Group - Cricket Tournament 2024/485104082_671886322038832_4988001814264046056_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Dubai JPG Group - Cricket Tournament 2024/485925185_671886472038817_1007038116911120594_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Dubai JPG Group - Cricket Tournament 2024/484857543_671886535372144_8365138943963651576_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Dubai JPG Group - Cricket Tournament 2024/123.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/v/1BTVTDfrdP/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 12,
+    "title": "Installation Ceremony of Lions District 306 D7",
+    "description": "Motivista Events & Productions was truly honored to be the official event management partner for the Annual Installation Ceremony of Lions District 306 D7 held on the 9th of August 2025 at the elegant Green Court Hotel, Homagama. From concept to execution, our team was delighted to handle every detail of this prestigious occasion creating a seamless and memorable experience for all Lions who gathered to celebrate leadership, service, and fellowship. A heartfelt thank you to the District Governor and the organizing committee for placing their trust in us. It was a privilege to bring this grand ceremony to life…",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/Installation Ceremony of Lions District 306 D7 - 09-08-2025/534787954_789801796913950_3651803523579921945_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Installation Ceremony of Lions District 306 D7 - 09-08-2025/534279749_789802070247256_6573976631580515306_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Installation Ceremony of Lions District 306 D7 - 09-08-2025/535117595_789802163580580_3228604145305051761_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Installation Ceremony of Lions District 306 D7 - 09-08-2025/536136478_789802206913909_9093363955554080050_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Installation Ceremony of Lions District 306 D7 - 09-08-2025/534683102_789802333580563_8068789990797832971_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/permalink.php?story_fbid=pfbid02CGBVkdiXcL5SePMo7XDuHaz4zGxhyR6eqBk1hapNR8omAd7TJctQvbzhiUfZ2Rugl&id=100076524115582",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 13,
+    "title": "Lions MD 306 - Welcoming New Year",
+    "description": "A tastefully curated Sri Lankan celebration setup by Motivista Events & Productions, specially designed for Lions Multiple District 306, Sri Lanka. From idea to execution, we infused the event with warmth, cultural richness, and elegance to mark the beginning of an exciting new Lions year.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/Lions MD 306 _ Welcoming New Year/515396968_753852543842209_3506155337141551200_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Lions MD 306 _ Welcoming New Year/515415417_753852550508875_5094394176481519427_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Lions MD 306 _ Welcoming New Year/515502395_753852687175528_397231162144218441_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Lions MD 306 _ Welcoming New Year/516584643_753852597175537_3697370055206506538_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Lions MD 306 _ Welcoming New Year/516642339_753852727175524_1808996551974642498_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1EYUFWdrD2/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 14,
+    "title": "LOLC Technologies - 11th Anniversary Celebration",
+    "description": "MotiVista Events & Productions had the honor of curating the grand setup for LOLC Technologies as they celebrated their 11th anniversary and Christmas festivities. The event was a spectacular fusion of elegance and festivity, reflecting the spirit of the season and the milestone LOLC Technologies had achieved. It was an unforgettable night that truly captured the essence of celebration and achievement for our esteemed client.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/LOLC Technologies - 11th Anniversary Celebration -  30.10.2022/485158690_671550178739113_6579325347551484638_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/LOLC Technologies - 11th Anniversary Celebration -  30.10.2022/485688362_671550325405765_1852512716737204169_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/LOLC Technologies - 11th Anniversary Celebration -  30.10.2022/484983537_671550315405766_687527560749341003_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/LOLC Technologies - 11th Anniversary Celebration -  30.10.2022/485413370_671550415405756_7099200346251344762_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/LOLC Technologies - 11th Anniversary Celebration -  30.10.2022/485648104_671550568739074_2395278353930595768_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1FXS2AtrpM/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 15,
+    "title": "Nethinethera’24 - Media day of Isipathana College",
+    "description": "Motivista Events & Productions takes pride in being part of events that inspire and empower the youth. We were thrilled to serve as the official event partner for the Media Day of Isipathana College - Nethinethera ‘24, held on October 29, 2024, at the NIIBS Convention Center, Kelaniya. It was truly an honor to be a part of such a remarkable event!",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/Nethinethera’24 - Media day of Isipathana College - October 30, 2024/485382163_672127282014736_6568627913747079022_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Nethinethera’24 - Media day of Isipathana College - October 30, 2024/485713516_672127345348063_4126966726493675172_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Nethinethera’24 - Media day of Isipathana College - October 30, 2024/485304884_672127305348067_8374071922849893762_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Nethinethera’24 - Media day of Isipathana College - October 30, 2024/485184103_672127252014739_3742317753042340246_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Nethinethera’24 - Media day of Isipathana College - October 30, 2024/485380135_672127265348071_2654120995693194992_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/permalink.php?story_fbid=pfbid02kW5TZwvnzc1xjiymDAxrxUuWrk7BYZVmc7BV1x3QPjpgZU3F2dUP3f4qX1zycgiBl&id=100076524115582",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 16,
+    "title": "Past District Governor’s Felicitation Night’25 Lions District 306 C2",
+    "description": "We are honored to be the total event solutions provider for the Past District Governor’s Felicitation Night 2025, offering comprehensive services including venue décor and setup, branding, and all audio-visual creatives. The event was held on the 21st of March 2025 at Salsa Villa, Pannipitiya…",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/Past District Governor’s Felicitation Night’25 _ Lions District 3/494152895_706778925216238_4924757852802680259_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Past District Governor’s Felicitation Night’25 _ Lions District 3/494432698_706779065216224_4540283882602194944_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Past District Governor’s Felicitation Night’25 _ Lions District 3/494477179_706779188549545_466051690307903052_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Past District Governor’s Felicitation Night’25 _ Lions District 3/495129259_706779265216204_747358207165809806_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Past District Governor’s Felicitation Night’25 _ Lions District 3/495335462_706779075216223_2681971446427734504_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1EMPCR7WuB/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 17,
+    "title": "The Best of Bally’s 2024",
+    "description": "Motivista Events & Productions joined the Best of Bally’s 2024 as the official event management partner for Bally’s Limited’s much-anticipated employee awards ceremony on December 14, 2024. The event was hosted at the Cinnamon Lakeside Hotel in Colombo, providing a day filled with celebration, recognition, and inspiration. This significant occasion showcased the exceptional achievements and contributions of Bally’s Limited employees from the past year. With carefully orchestrated ceremonies, award presentations, and entertainment, the evening honored the dedication and efforts of the workforce that contributes to the company’s success. Best of Bally’s 2024 delivered an unforgettable experience for all participants, marking it as a remarkable success.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/The Best of Bally’s -  November 2024/485764283_673902925170505_8872875793103066239_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/The Best of Bally’s -  November 2024/485872313_673902941837170_4280422799224147956_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/The Best of Bally’s -  November 2024/485953031_673902905170507_2040544188314110514_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/The Best of Bally’s -  November 2024/486237184_673902915170506_1721898756135641942_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/The Best of Bally’s -  November 2024/486289185_673903131837151_3495108221472249711_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1djJuLGCsk/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 18,
+    "title": "Windforce PLC - 15th Anniversary",
+    "description": "WindForce PLC celebrated 15 years of excellence on June 15th, 2024. WindForce PLC is the largest renewable energy private sector company in Sri Lanka. Motivista Events & Productions was more than excited to be the official Event Management partner of this event and handling all the aspects.. ",
+    "images": [
+      "/Motivista-Demo/projects/Events/Cooperate Events/Windforce PLC - 15th Anniversary - June 15th, 2024/485153077_671543802073084_3536447470040257536_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Windforce PLC - 15th Anniversary - June 15th, 2024/485379668_671543862073078_5817328671700715702_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Windforce PLC - 15th Anniversary - June 15th, 2024/485038089_671543772073087_3831684743700165256_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Windforce PLC - 15th Anniversary - June 15th, 2024/485741602_671543665406431_5500078930027915963_n.jpg",
+      "/Motivista-Demo/projects/Events/Cooperate Events/Windforce PLC - 15th Anniversary - June 15th, 2024/485383191_671543815406416_3089418004501701227_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1FAc44eXEM/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 19,
+    "title": "Ayushi’s 1st Birthday",
+    "description": "A simple setup done for the 1st birthday of Ayushi. Party setup and coordination was done by Motivista Events & Productions.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Ayushi’s 1st Birthday - 01.06.2023/484810709_669830772244387_3258660627356583114_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Ayushi’s 1st Birthday - 01.06.2023/484889686_669830745577723_5919229993218658074_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Ayushi’s 1st Birthday - 01.06.2023/hhhj.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Ayushi’s 1st Birthday - 01.06.2023/485038926_669830765577721_4177804154099312298_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/p/1FAc44eXEM/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 20,
+    "title": "Christmas Hampers for Australian Education Centre",
+    "description": "We were delighted to partner with the Australian Education Centre in spreading holiday cheer by providing them with our specially curated Christmas hampers. These hampers were thoughtfully prepared to bring joy and festive warmth to their valued clients, making this season even more memorable.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Christmas Hampers for Australian Education Centre - December 2024/485640818_673683058525825_3130487820740494162_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Christmas Hampers for Australian Education Centre - December 2024/485768198_673682988525832_96205885737247727_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Christmas Hampers for Australian Education Centre - December 2024/485799079_673682948525836_7290537395007956388_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Christmas Hampers for Australian Education Centre - December 2024/486029792_673683228525808_5672002089647759833_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/17KDpum6Pb/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 21,
+    "title": "Christmas Starry Night' 24",
+    "description": "Motivista Events & Productions is proud to partner with Lions District 306 C2 for their spectacular Christmas Starry Night ’24! From concept to creation, we are delighted to be part of the magic, crafting a stunning setup to bring the holiday spirit to life.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Christmas Starry Night _ 24/485904944_673917831835681_7505574251714171648_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Christmas Starry Night _ 24/485649120_673918078502323_6138755423965284797_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Christmas Starry Night _ 24/485799131_673917688502362_3249655611278252611_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Christmas Starry Night _ 24/485915758_673917785169019_1973201850853279569_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1JgTiTRFN9/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 22,
+    "title": "Decennium 2022 - A Batch Reunion",
+    "description": "We are more than happy to be partnered with this amazing event as the Official Event Manager & provider of all decorations and setup .The event was held on 23rd of July 2022 at Mandarina Hotel , Colombo.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Decennium 2022 - A Batch Reunion - 23rd of July 2022/483506897_662924229601708_5859535848643426097_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Decennium 2022 - A Batch Reunion - 23rd of July 2022/482056748_662924242935040_5155520125232477685_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Decennium 2022 - A Batch Reunion - 23rd of July 2022/482092934_662924216268376_5745484375570319950_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Decennium 2022 - A Batch Reunion - 23rd of July 2022/482130005_662923979601733_7551769527767103606_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/17DKWrfJHq/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 23,
+    "title": "Dhanushka Weds Dilan",
+    "description": "Weddings by Motivista Events & Productions! Client : Dhanushka & Dilan Location : Avenra Garden Hotel, Negombo Event Planner’s Note : We were truly thrilled to be chosen as the event planner for this wonderful couple, both residing in Australia. Despite the distance, we managed all the planning and coordination right here in Sri Lanka, ensuring every detail was perfectly arranged from start to finish. Their trust in us, even from afar, made the process seamless and enjoyable. They were not just cooperative but also incredibly warm and friendly, making the entire experience a delight. It was an honor to bring their vision to life and be a part of their special journey. We make your dream wedding, no longer a dream!",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Dhanushka Weds Dilan/485077856_671549342072530_5627587646375720460_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Dhanushka Weds Dilan/484810551_671549042072560_300645499143270032_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Dhanushka Weds Dilan/485131179_671549445405853_8334967979894752695_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Dhanushka Weds Dilan/484810551_671549042072560_300645499143270032_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1WrGh3JL89/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 24,
+    "title": "Feast of Fear Halloween Party",
+    "description": "Fear of Fest Halloween party was a naval event for Tech One Global Lanka (Pvt) Ltd. We provided an all in one service for this event with full set up, Lights, Sounds , DJ, Photography, Videography and event Coordination!",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Feast of Fear Halloween Party - 15.10.2022/483544240_665335279360603_2267098545910105179_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Feast of Fear Halloween Party - 15.10.2022/483743365_665335429360588_1639414779416343878_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Feast of Fear Halloween Party - 15.10.2022/483868147_665335436027254_2129336462541103933_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Feast of Fear Halloween Party - 15.10.2022/483747101_665335392693925_4608038950569464574_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/17c7j2zw9x/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 25,
+    "title": "Gourmet Hampers - December 2024",
+    "description": "Hampers done for a client in Australia 🇦🇺 This holiday season has been bustling with Christmas hampers! Yesterday, we received a heartwarming call from one of our Sri Lankan clients in Australia, wishing to send a touch of gourmet delight to her loved ones back home.Without missing a beat, we crafted her thoughtful hampers and delivered them right to their homes today, on Christmas Day",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Gourmet Hampers - December 2024/485800297_673899045170893_1225361991618203680_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1EjueqcXFE/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 26,
+    "title": "Lions Roar with Gypsies’25",
+    "description": "The Motivista Events & Productions team was thrilled to partner with Lions District 306 C2 in organizing Lions Roar with Gypsies, held on the January 24, 2025, at Water’s Edge. The event was organized with a worthy course of raising funds to support the Dialysis unit at KDU hospital.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Lions Roar with Gypsies’25 - 24-01-2025/486508833_674877471739717_7050545670155638570_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Lions Roar with Gypsies’25 - 24-01-2025/486179102_674877368406394_5686985854213220511_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Lions Roar with Gypsies’25 - 24-01-2025/485808959_674877328406398_7748670972948487410_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Lions Roar with Gypsies’25 - 24-01-2025/486520546_674877335073064_9070223997267369423_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1F96C1UmgV/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 27,
+    "title": "Pabodha's 21st Birthday",
+    "description": "The 21st birthday party setup and coordination was done by Motivista Events & Productions Customer.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Pabodha_s 21st Birthday - 12.04.2023/484875768_669529505607847_6898477865163207226_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Pabodha_s 21st Birthday - 12.04.2023/484806628_669529398941191_798967428730468428_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Pabodha_s 21st Birthday - 12.04.2023/482246728_669529508941180_1979449831104801743_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Pabodha_s 21st Birthday - 12.04.2023/481509457_669529548941176_3614089250995935727_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1G5FDs7cWL/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 28,
+    "title": "Wedding Decorations – Piyumi & Shehan",
+    "description": "Weddings by Motivista Events & Productions! We make your dream wedding, no longer a dream.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Piyumi & Shehan - 02-06-2022/480365961_649418210962734_3311072247122344906_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Piyumi & Shehan - 02-06-2022/480353914_649418330962722_2158056006729371379_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Piyumi & Shehan - 02-06-2022/480437385_649418200962735_7215471973165025015_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Piyumi & Shehan - 02-06-2022/481025114_649418197629402_654414630039660708_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1FdVMdztdm/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 29,
+    "title": "Rashmi Weds Sasanka",
+    "description": "We wish a life time of happiness and joy to our Happy Couple Rashmi & Sasanka Motivista Events & Productions - will bring your wedding visions to life. Let us be a part of your anticipated celebration of Life, Love, Hope and Happiness. You can be sure that we will make your day the best it can possibly be.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Rashmi Weds Sasanka - 04-01-2022/480205999_647542267816995_218501136948142049_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Rashmi Weds Sasanka - 04-01-2022/480433065_647542374483651_2953175249452054064_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Rashmi Weds Sasanka - 04-01-2022/480506192_647542307816991_1953451128820094132_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Rashmi Weds Sasanka - 04-01-2022/480439411_647542297816992_5388847210083029780_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/16ZoBSqvBn/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 30,
+    "title": "Sinhala & Hindu Avurudu Celebration April 2025",
+    "description": "This year at Motivista (Pvt) Ltd, we embraced the rich cultural diversity of our team by celebrating the New Year in both Sinhala and Hindu traditions. The celebration was a vibrant blend of customs, colors, and unity, honoring the significance of Sinhala and Tamil New Year.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Sinhala & Hindu Avurudu Celebration April 2025/492032407_693963749831089_2232750995358791495_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Sinhala & Hindu Avurudu Celebration April 2025/492044525_693962259831238_4271193790937108318_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Sinhala & Hindu Avurudu Celebration April 2025/491751868_693962266497904_2386869834795218047_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/Sinhala & Hindu Avurudu Celebration April 2025/491576364_693963473164450_7697065724398654150_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/19GfVSUaeo/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 31,
+    "title": "කඨින පිංකම 2023",
+    "description": "Out of all the events we have coordinated, it was a different experience for our team to work on all the decorations, setups and coordination of a Katina Pinkama in 2023. It was a blessful moment to handle this spiritual event.",
+    "images": [
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/කඨින පිංකම 2023/485679805_671542072073257_2230593704344038908_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/කඨින පිංකම 2023/484942354_671542058739925_850954826153179273_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/කඨින පිංකම 2023/485157601_671541972073267_439642652175276294_n.jpg",
+      "/Motivista-Demo/projects/Events/Non Cooperate Events/කඨින පිංකම 2023/485706475_671541852073279_682160106694892869_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/16ryGVFr9g/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 32,
+    "title": "“Branding the Brand” Leadership training & Image Building workshop",
+    "description": "One of our facilitators Mr. Rahul Attanayake conducted the Leadership training & Image Building workshop - “Branding the Brand” representing Motivista Academy of Excellence for students of “ All Island School Photographer’s Association” on the 30th October 2022 at Museum Auditorium, Colombo. The training session was organised in parallel to the celebration of their anniversary and year end general meeting. Over 100 young enthusiastic Young leaders attended the Leadership Training workshop",
+    "images": [
+      "/Motivista-Demo/projects/Academy/“Branding the Brand” -(30th October 2022)/482212085_653663137057146_3297094887758383268_n.jpg",
+      "/Motivista-Demo/projects/Academy/“Branding the Brand” -(30th October 2022)/482251427_653663403723786_6628603414373572477_n.jpg",
+      "/Motivista-Demo/projects/Academy/“Branding the Brand” -(30th October 2022)/483367577_653663450390448_6263209318397518094_n.jpg",
+      "/Motivista-Demo/projects/Academy/“Branding the Brand” -(30th October 2022)/483482200_653663177057142_2048599352292282854_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1FNS7c5owH/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 33,
+    "title": "Platinum Cake show 2022",
+    "description": "Our facilitators of Motivista Academy of Excellence conducted a Business Innovation Bootcamp at the “Platinum Cake show 2022” organised by Kolonnawa Divisional Secretariat by conducting sessions to empower the female entrepreneurs in the region. The event was held on 24th of February 2022 at One Galle Face, Colombo.",
+    "images": [
+      "/Motivista-Demo/projects/Academy/“Platinum Cake show 2022” - 24th of February 2022/488081855_671304181959708_5351092375037762474_n.jpg",
+      "/Motivista-Demo/projects/Academy/“Platinum Cake show 2022” - 24th of February 2022/488246497_671301918626601_16080216149115019_n.jpg",
+      "/Motivista-Demo/projects/Academy/“Platinum Cake show 2022” - 24th of February 2022/488315326_671300638626729_3217718804859748751_n.jpg",
+      "/Motivista-Demo/projects/Academy/“Platinum Cake show 2022” - 24th of February 2022/488370567_671300998626693_3336562457304266298_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1ATzTJLPsX/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 34,
+    "title": "Asian Grammer School (5th August 2025 ) A self-awareness session",
+    "description": "“Are You an Important Person?”  A thought-provoking self-awareness session was conducted on the 5th of August 2025 at the main auditorium of Asian Grammar School, in collaboration with Leo District 306 D7. The session aimed to help students explore their identity, recognize their inner value, and understand the power of self-worth inspiring young minds to believe in their potential and purpose.",
+    "images": [
+      "/Motivista-Demo/projects/Academy/Asian Grammer School  (5th August 2025 ) A self-awareness session/528598120_766180722472053_7360941984811142282_n.jpg",
+      "/Motivista-Demo/projects/Academy/Asian Grammer School  (5th August 2025 ) A self-awareness session/528893449_766180632472062_5700666957439767065_n.jpg",
+      "/Motivista-Demo/projects/Academy/Asian Grammer School  (5th August 2025 ) A self-awareness session/529323674_766180695805389_1094755505529051497_n (1).jpg",
+      "/Motivista-Demo/projects/Academy/Asian Grammer School  (5th August 2025 ) A self-awareness session/529897562_766180672472058_4322083063816581759_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1AF95mKWrs/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 35,
+    "title": "Bally's Limited - A Skill Development Program for the cashier staff",
+    "description": "Motivista Academy of Excellence successfully conducted a Skill Development Program for the cashier staff of Bally’s Limited on 8th August 2025 at The Kingsbury Hotel, Colombo.The session was led by our trainer, Mr. Roshan Latiff, who covered key areas such as Emotional Intelligence, Self-Value, and Self-Affirmation Techniques, enriched with engaging and practical activities.The program saw the participation of over 150 attendees, and it was further strengthened by the presence of several senior officers of Bally’s Limited, who joined hands in supporting and observing the initiative.",
+    "images": [
+      "/Motivista-Demo/projects/Academy/Bally_s Limited (8th August 2025) - A Skill Development Program for the cashier staff/533090906_773459225077536_8576631342156883783_n.jpg",
+      "/Motivista-Demo/projects/Academy/Bally_s Limited (8th August 2025) - A Skill Development Program for the cashier staff/534314766_773461358410656_6315283448106073348_n.jpg",
+      "/Motivista-Demo/projects/Academy/Bally_s Limited (8th August 2025) - A Skill Development Program for the cashier staff/535108381_773461101744015_451091955303369958_n.jpg",
+      "/Motivista-Demo/projects/Academy/Bally_s Limited (8th August 2025) - A Skill Development Program for the cashier staff/533406953_773456681744457_1314067450763287535_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/1A7piU1d9q/",
+    "github": "",
+    "technologies":""
+  },
+  {
+    "id": 36,
+    "title": "BNI Elite Chapter a feature presentation, showcasing the wide range of transformative services we offer through the Academy",
+    "description": "Motivista (Pvt) Ltd is proud to be a member of the BNI Elite Chapter, representing our training and development arm – Motivista Academy of Excellence. On the 29th of May 2025, our CEO had the privilege of delivering a feature presentation, showcasing the wide range of transformative services we offer through the Academy. It was a great opportunity to connect, inspire, and share how we’re empowering individuals and organizations through practical, skills-based learning.",
+    "images": [
+      "/Motivista-Demo/projects/Academy/BNI Elite Chapter (29th of May 2025)/503858035_716293527460773_995848747268846203_n.jpg",
+      "/Motivista-Demo/projects/Academy/BNI Elite Chapter (29th of May 2025)/504025079_716293614127431_4215893879157113591_n.jpg",
+      "/Motivista-Demo/projects/Academy/BNI Elite Chapter (29th of May 2025)/504113383_716293537460772_7238517579429708841_n.jpg",
+      "/Motivista-Demo/projects/Academy/BNI Elite Chapter (29th of May 2025)/504386439_716293600794099_2600412412956710288_n.jpg"
+    ],
+    "demo": "https://web.facebook.com/share/16oEHv4pFW/",
+    "github": "",
+    "technologies":""
+  }
+]
