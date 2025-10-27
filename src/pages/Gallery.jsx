@@ -213,7 +213,11 @@ export default function Gallery() {
                   {/* Image container with overlay */}
                   <div className="relative overflow-hidden">
                     <img
-                      src={gallery.coverImage}
+                      src={
+                            gallery.photos && gallery.photos.length > 0
+                              ? `${import.meta.env.BASE_URL}${gallery.photos[0]}`
+                              : `${import.meta.env.BASE_URL}images/default-cover.jpg`
+                          }
                       alt={gallery.title}
                       className="w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
