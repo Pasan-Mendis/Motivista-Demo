@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "vite gh-pages"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.2.15",
