@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -r https://github.com/Pasan-Mendis/Motivista-Demo"
+    "deploy": "vite gh-pages"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.2.15",
@@ -47,6 +47,7 @@
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.12",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "vite-plugin-gh-pages": "^1.0.1"
   }
 }
