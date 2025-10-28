@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -r https://github.com/Pasan-Mendis/Motivista-Demo"
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.2.15",
