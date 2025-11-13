@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import defaultLogo from "../assets/images/logos/MH White.png";
 import apexLogo from "../assets/images/logos/MA White.png";
 import eventsLogo from "../assets/images/logos/MEP White.png";
+import academyLogo from "../assets/images/logos/MAE White.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +18,16 @@ function Navbar() {
     { name: "Home", path: "/" },
     { name: "Apex", path: "/apex" },
     { name: "Event", path: "/event" },
+    { name: "Academy", path: "/academy" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
   ];
 
   const getLogo = () => {
-    if (location.pathname.startsWith("/apex")) return apexLogo;
-    if (location.pathname.startsWith("/event")) return eventsLogo;
+    if (location.pathname.includes("/apex")) return apexLogo;
+    if (location.pathname.includes("/event")) return eventsLogo;
+    if (location.pathname.includes("/academy")) return academyLogo;
+
     return defaultLogo;
   };
 

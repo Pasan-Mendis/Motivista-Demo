@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "category": "Youth & Students",
+    "icon": "Users",
+    "image":"youth.jpg",
+    "description": "Discover your potential and take charge of your future with practical skills and personal growth tools.",
+    "items": [
+      {
+        "title": "Executive Coaching",
+        "icon": "MessageSquare",
+        "description": "One-on-one guidance to build confidence, improve communication, and develop leadership skills."
+      },
+      {
+        "title": "Career Pathways & Talent Development",
+        "icon": "ClipboardCheck",
+        "description": "Explore your interests, set meaningful goals, and map a path toward your future success."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Working Professionals",
+    "icon": "Briefcase",
+    "image":"professional.jpeg",
+    "description": "Accelerate your career and unlock your full potential with targeted growth programs.",
+    "items": [
+      {
+        "title": "Executive Coaching",
+        "icon": "MessageSquare",
+        "description": "One-on-one, confidential guidance to enhance leadership, decision-making, strategic thinking, and professional impact."
+      },
+      {
+        "title": "Career Pathways & Talent Development",
+        "icon": "Target",
+        "description": "Plan your ideal career journey and identify opportunities for advancement and skill growth."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Corporates & Organizations",
+    "icon": "Building2",
+    "image":"organisations.jpeg",
+    "description": "Elevate your talent, drive innovation, and transform your business.",
+    "items": [
+      {
+        "title": "Employee Upskilling Programs",
+        "icon": "Cpu",
+        "description": "Customized training to enhance skills in digital tools, soft skills, and professional growth."
+      },
+      {
+        "title": "Digital Transformation Training",
+        "icon": "Bot",
+        "description": "Future-proof your teams with essential skills in AI tools, social media management, and digital productivity."
+      },
+      {
+        "title": "Corporate Mentorship Programs",
+        "icon": "Users",
+        "description": "Structured initiatives to connect experienced leaders with emerging talent for lasting impact."
+      },
+      {
+        "title": "Leadership Retreats & Immersive Workshops",
+        "icon": "Mountain",
+        "description": "Intensive, offsite programs designed for team bonding, leadership growth, and strategic alignment."
+      }
+    ]
+  }
+]

@@ -95,7 +95,7 @@ export default function SecondaryNavbar({ links: customLinks = [] }) {
         </div>
       </nav>
 
-      <style jsx>{`
+      <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }

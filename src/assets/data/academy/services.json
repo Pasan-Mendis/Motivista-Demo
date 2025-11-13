@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Soft Skills Development",
+    "description": "We nurture confidence and emotional intelligence, building the foundation for future leaders."
+  },
+  {
+    "id": 2,
+    "title": "Personality Development",
+    "description": "We guide you to unlock your best self and communicate with confidence."
+  },
+  {
+    "id": 3,
+    "title": "Professional Development",
+    "description": "We help you elevate your professional presence and thrive in every workplace setting."
+  },
+  {
+    "id": 4,
+    "title": "Career Development",
+    "description": "We guide you in discovering your strengths and taking charge of your professional journey."
+  },
+  {
+    "id": 5,
+    "title": "English Essentials",
+    "description": "Enhance language skills to connect, express, and succeed."
+  },
+  {
+    "id": 6,
+    "title": "Entrepreneur’s Guide",
+    "description": "We guide you in turning innovative ideas into profitable enterprises."
+  },
+  {
+    "id": 7,
+    "title": "Communication & Networking",
+    "description": "We equip you with the skills to speak, connect, and leave a lasting impact."
+  },
+  {
+    "id": 8,
+    "title": "Women Empowerment",
+    "description": "We empower you to lead, grow, and thrive with confidence and skills."
+  },
+  {
+    "id": 9,
+    "title": "Digital Skills",
+    "description": "We equip you with the digital know-how to succeed in a connected world."
+  },
+  {
+    "id": 10,
+    "title": "Leadership & Team Building",
+    "description": "Lead with clarity, influence, and purpose."
+  },
+  {
+    "id": 11,
+    "title": "Mental Health & Wellbeing",
+    "description": "Foster mental strength and wellbeing for everyday challenges."
+  },
+  {
+    "id": 12,
+    "title": "Customized Training Programs",
+    "description": "Tailored workshops to fit organizational or individual needs."
+  }
+]

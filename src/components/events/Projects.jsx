@@ -8,9 +8,12 @@ import {
   ExternalLink,
   Sparkles,
 } from "lucide-react";
-import projects from "../../services/events/projectData";
-// eslint-disable-next-line no-unused-vars
-import { Link, useLocation } from "react-router-dom";
+import { getProjectsWithSubCategory } from "../../services/projectData";
+import { Link } from "react-router-dom";
+
+// Get only first 6 projects
+const allProjects = [...getProjectsWithSubCategory("Events")];
+const projects = allProjects.slice(0, 6);
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -130,7 +133,7 @@ export default function Projects() {
                 }}
               >
                 <img
-                  src={project.image}
+                  src={project.images && project.images.length > 0 ? project.images[0] : `${import.meta.env.BASE_URL}images/default-cover.jpg`}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -182,60 +185,68 @@ export default function Projects() {
                   </p>
 
                   <div className="flex flex-wrap gap-4 mb-4">
-                    <div className="flex items-center gap-2">
-                      <MapPin size={14} style={{ color: "var(--color-accent)" }} />
-                      <span
-                        className="text-xs"
-                        style={{ color: "var(--color-gray-200)" }}
-                      >
-                        {project.location}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Users
-                        size={14}
-                        style={{ color: "var(--color-highlight)" }}
-                      />
-                      <span
-                        className="text-xs"
-                        style={{ color: "var(--color-gray-200)" }}
-                      >
-                        {project.attendees}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Calendar
-                        size={14}
-                        style={{ color: "var(--color-accent-light)" }}
-                      />
-                      <span
-                        className="text-xs"
-                        style={{ color: "var(--color-gray-200)" }}
-                      >
-                        {project.date}
-                      </span>
-                    </div>
+                    {project.location && (
+                      <div className="flex items-center gap-2">
+                        <MapPin size={14} style={{ color: "var(--color-accent)" }} />
+                        <span
+                          className="text-xs"
+                          style={{ color: "var(--color-gray-200)" }}
+                        >
+                          {project.location}
+                        </span>
+                      </div>
+                    )}
+                    {project.attendees && (
+                      <div className="flex items-center gap-2">
+                        <Users
+                          size={14}
+                          style={{ color: "var(--color-highlight)" }}
+                        />
+                        <span
+                          className="text-xs"
+                          style={{ color: "var(--color-gray-200)" }}
+                        >
+                          {project.attendees}
+                        </span>
+                      </div>
+                    )}
+                    {project.date && (
+                      <div className="flex items-center gap-2">
+                        <Calendar
+                          size={14}
+                          style={{ color: "var(--color-accent-light)" }}
+                        />
+                        <span
+                          className="text-xs"
+                          style={{ color: "var(--color-gray-200)" }}
+                        >
+                          {project.date}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* View Project Button */}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-2 text-sm font-semibold transition-all duration-500 ${
-                      hoveredProject === project.id
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 -translate-x-4"
-                    }`}
-                    onClick={(e) => e.stopPropagation()}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <span style={{ color: "var(--color-accent)" }}>View Project</span>
-                    <ExternalLink
-                      size={16}
-                      style={{ color: "var(--color-accent)" }}
-                    />
-                  </a>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-2 text-sm font-semibold transition-all duration-500 ${
+                        hoveredProject === project.id
+                          ? "opacity-100 translate-x-0"
+                          : "opacity-0 -translate-x-4"
+                      }`}
+                      onClick={(e) => e.stopPropagation()}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <span style={{ color: "var(--color-accent)" }}>View Project</span>
+                      <ExternalLink
+                        size={16}
+                        style={{ color: "var(--color-accent)" }}
+                      />
+                    </a>
+                  )}
                 </div>
 
                 <div
@@ -256,7 +267,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* ✅ View More Button - Mobile Responsive + Router Link */}
+        {/* View More Button */}
         <div
           className={`text-center transition-all duration-1000 delay-1200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"

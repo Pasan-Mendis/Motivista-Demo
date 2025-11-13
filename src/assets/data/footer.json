@@ -52,5 +52,23 @@
       "instagramLink": "https://www.instagram.com/motivista_events_productions",
       "phone": "+94779002420"
     }
+  },
+  "academy": {
+    "footerTheme": {
+      "primary": "var(--color-highlight)",
+      "secondary": "var(--color-accent)",
+      "accent": "var(--color-secondary-light)",
+      "background": "var(--color-background-dark)",
+      "textPrimary": "var(--color-primary)",
+      "textSecondary": "var(--color-gray-500)"
+    },
+    "footer": {
+      "companyName": "Motivista Academy",
+      "companyDescription": "Transforming potential into achievement.",
+      "email": "motivista.academy@gmail.com",
+      "facebookLink": "https://www.facebook.com/MotivistaAcademy",
+      "instagramLink": "https://www.instagram.com/motivista_ae/",
+      "phone": "+94779002420"
+    }
   }
 }

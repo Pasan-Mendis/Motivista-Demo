@@ -26,6 +26,8 @@ export default function App() {
           <Route path="event" element={<Event />} />
           <Route path="Motivista-Demo/event" element={<Event />} />
           <Route path="Motivista-Demo/gallery" element={<Gallery />} />
+          <Route path="academy" element={<Academy />} />
+          <Route path="Motivista-Demo/academy" element={<Academy />} />
           {/* <Route path="academy" element={<Academy />} /> */}
           <Route path="gallery" element={<Gallery/>}/>
           <Route path="*" element={<NotFound />} />

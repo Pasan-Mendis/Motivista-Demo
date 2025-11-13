@@ -24,3 +24,25 @@ export const getProjectsBySubCategory = (mainCategory, subCategory) => {
   const ids = category[subCategory] || [];
   return allProjects.filter((p) => ids.includes(p.id));
 };
+
+export const getProjectsWithSubCategory = (mainCategory) => {
+  const projects = getProjectsByMainCategory(mainCategory);
+  const category = projectHierarchy[mainCategory];
+
+  if (!category || Array.isArray(category)) {
+    // If no subcategories exist, just return the projects as is
+    return projects.map((p) => ({ ...p, subCategory: null }));
+  }
+
+  const subCategories = Object.keys(category);
+
+  return projects.map((project) => {
+    // Find which subcategory this project belongs to
+    const subCategory = subCategories.find((sub) =>
+      getProjectsBySubCategory(mainCategory, sub).some(
+        (p) => p.id === project.id
+      )
+    );
+    return { ...project, subCategory: subCategory || null };
+  });
+};

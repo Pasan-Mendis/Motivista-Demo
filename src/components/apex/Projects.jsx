@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronRight, ExternalLink, Calendar, Users, Code, Award, Sparkles } from "lucide-react";
-import projects from "../../services/apex/projectData";
+import { ChevronRight, ExternalLink, Code, Sparkles } from "lucide-react";
+import { getProjectsWithSubCategory } from "../../services/projectData";
+
+const projects = [...getProjectsWithSubCategory("Apex")];
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -11,8 +13,8 @@ const Projects = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const sectionRef = useRef(null);
 
-  // Mock categories for filtering
-  const categories = ['all', 'merchandise', 'mobile', 'blockchain'];
+  // Categories based on subCategory
+  const categories = ['all', 'Websites', 'Merchandise', 'Social Media', 'Video Productions'];
 
   // Intersection Observer for scroll animations
   useEffect(() => {
@@ -47,10 +49,17 @@ const Projects = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Filter projects based on category
+  // Handle project click - navigate to demo link
+  const handleProjectClick = (project) => {
+    if (project.demo) {
+      window.open(project.demo, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  // Filter projects based on subCategory (not category)
   const filteredProjects = filterCategory === 'all' 
     ? projects 
-    : projects.filter(project => project.category === filterCategory);
+    : projects.filter(project => project.subCategory === filterCategory);
 
   // Show only first 6 projects initially
   const displayedProjects = showAllProjects 
@@ -192,6 +201,7 @@ const Projects = () => {
                   }}
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
+                  onClick={() => handleProjectClick(project)}
                 >
                   {/* Professional Project Card */}
                   <div 
@@ -208,7 +218,7 @@ const Projects = () => {
                     {/* Image Section */}
                     <div className="relative overflow-hidden h-48 sm:h-56 lg:h-64">
                       <img
-                        src={project.image || `https://picsum.photos/400/300?random=${project.id}`}
+                        src={project.images[0]}
                         alt={project.title || `Project ${project.id}`}
                         className="w-full h-full object-cover transition-transform duration-500"
                         style={{
@@ -234,7 +244,7 @@ const Projects = () => {
                           border: `1px solid var(--color-accent)`,
                         }}
                       >
-                        {project.status || 'Completed'}
+                        {project.subCategory}
                       </div>
 
                       {/* Professional Action Buttons */}
@@ -252,6 +262,10 @@ const Projects = () => {
                             borderColor: 'var(--color-gray-300)',
                             color: 'var(--color-primary)',
                           }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleProjectClick(project);
+                          }}
                         >
                           <ExternalLink size={16} className="sm:w-[18px] sm:h-[18px]" />
                         </button>
@@ -261,6 +275,10 @@ const Projects = () => {
                             backgroundColor: 'var(--color-white)',
                             borderColor: 'var(--color-gray-300)',
                             color: 'var(--color-primary)',
+                          }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleProjectClick(project);
                           }}
                         >
                           <Code size={16} className="sm:w-[18px] sm:h-[18px]" />
@@ -277,46 +295,14 @@ const Projects = () => {
                         >
                           {project.title || `Project ${project.id}`}
                         </h3>
-                        
-                        {project.award && (
-                          <div className="flex items-center flex-shrink-0 ml-2">
-                            <Award size={18} className="sm:w-5 sm:h-5" style={{ color: 'var(--color-highlight)' }} />
-                          </div>
-                        )}
                       </div>
                       
                       <p 
-                        className="text-sm sm:text-base leading-relaxed mb-4 sm:mb-5 lg:mb-6"
+                        className="text-sm sm:text-base leading-relaxed mb-4 sm:mb-5 lg:mb-6 line-clamp-2 sm:line-clamp-3"
                         style={{ color: 'var(--color-neutral)' }}
                       >
                         {project.description || 'A comprehensive solution designed to meet modern business requirements with scalable architecture and intuitive user experience.'}
                       </p>
-
-                      {/* Project Metrics */}
-                      <div className="flex items-center justify-between mb-4 sm:mb-5 lg:mb-6">
-                        <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 flex-wrap">
-                          <div className="flex items-center gap-1.5 sm:gap-2">
-                            <Calendar size={14} className="sm:w-4 sm:h-4" style={{ color: 'var(--color-neutral-light)' }} />
-                            <span 
-                              className="text-xs sm:text-sm font-medium"
-                              style={{ color: 'var(--color-neutral-light)' }}
-                            >
-                              {project.year || '2024'}
-                            </span>
-                          </div>
-                          {project.team && (
-                            <div className="flex items-center gap-1.5 sm:gap-2">
-                              <Users size={14} className="sm:w-4 sm:h-4" style={{ color: 'var(--color-neutral-light)' }} />
-                              <span 
-                                className="text-xs sm:text-sm font-medium"
-                                style={{ color: 'var(--color-neutral-light)' }}
-                              >
-                                {project.team}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
 
                       {/* Technology Stack */}
                       {project.technologies && (
@@ -344,7 +330,7 @@ const Projects = () => {
                           color: hoveredProject === project.id ? 'var(--color-accent)' : 'var(--color-neutral)',
                         }}
                       >
-                        View Case Study
+                        View Project
                         <ChevronRight 
                           size={14}
                           className="sm:w-4 sm:h-4"
